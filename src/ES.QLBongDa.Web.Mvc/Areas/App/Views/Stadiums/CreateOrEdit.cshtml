@@ -1,0 +1,66 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Authorization
+@using ES.QLBongDa.Web.Areas.App.Models.Stadiums
+@using ES.QLBongDa.Web.Areas.App.Startup
+@model CreateOrEditStadiumViewModel
+@using ES.QLBongDa.Web.TagHelpers
+@{
+ViewBag.CurrentPageName = AppPageNames.Host.Stadiums;
+}
+@section Scripts
+{
+<script abp-src="/view-resources/Areas/App/Views/Stadiums/CreateOrEdit.js" asp-append-version="true"></script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid">
+
+    @{
+    var breadcrumbs = new List<BreadcrumbItem>()
+        {
+        new BreadcrumbItem("/App/Stadiums", L("Stadiums")),
+        new BreadcrumbItem(Model.IsEditMode ? L("Edit") : L("Create"))
+        };
+        }
+        <abp-page-subheader title='@(Model.IsEditMode ? (L("EditStadium")) : L("CreateNewStadium"))' breadcrumbs="breadcrumbs">
+        </abp-page-subheader>
+
+        <div class="@(await GetContainerClass())">
+            <div class="card card-custom gutter-b">
+                <form name="StadiumInformationsForm" role="form" novalidate class="form-validation">
+                    <div class="card-body">
+                        <div class="form">
+                            <div id="StadiumInformationsTab">
+                                @if (Model.IsEditMode)
+                                {
+                                <input type="hidden" name="id" value="@Model.Stadium.Id" />
+                                }
+
+                                <div class="my-3">
+                                    <label class="form-label" for="Stadium_Masan">@L("Masan")</label>
+                                    <input class="form-control" id="Stadium_Masan" value="@Model.Stadium.Masan" type="text" name="masan" required />
+                                </div>
+
+                                <div class="my-3">
+                                    <label class="form-label" for="Stadium_Tensan">@L("Tensan")</label>
+                                    <input class="form-control" id="Stadium_Tensan" value="@Model.Stadium.Tensan" type="text" name="tensan" maxlength="@ES.QLBongDa.Stadiums.StadiumConsts.MaxTensanLength" minlength="@ES.QLBongDa.Stadiums.StadiumConsts.MinTensanLength" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <button type="button" id="saveBtn" class="btn btn-success float-right"><i class="fa fa-save"></i> @L("Save")</button>
+                                @if (!Model.IsEditMode)
+                                {
+                                <button type="button" id="saveAndNewBtn" class="btn btn-success float-right"><i class="fa fa-save"></i> @L("SaveAndNew")</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
