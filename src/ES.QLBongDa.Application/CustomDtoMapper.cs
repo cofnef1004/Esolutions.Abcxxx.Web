@@ -1,4 +1,5 @@
-﻿using ES.QLBongDa.Clubs.Dtos;
+﻿
+using ES.QLBongDa.Clubs.Dtos;
 using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Vilages.Dtos;
 using ES.QLBongDa.Vilages;
@@ -49,6 +50,8 @@ using ES.QLBongDa.Notifications.Dto;
 using ES.QLBongDa.Organizations.Dto;
 using ES.QLBongDa.Sessions.Dto;
 using ES.QLBongDa.WebHooks.Dto;
+using ES.QLBongDa.Tables.Dtos;
+using ES.QLBongDa.Tables;
 
 namespace ES.QLBongDa
 {
@@ -56,6 +59,7 @@ namespace ES.QLBongDa
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            configuration.CreateMap<Table, PersonListDto>();
             configuration.CreateMap<CreateOrEditClubDto, Club>().ReverseMap();
             configuration.CreateMap<ClubDto, Club>().ReverseMap();
             configuration.CreateMap<CreateOrEditVilageDto, Vilage>().ReverseMap();

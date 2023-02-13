@@ -15,10 +15,12 @@
             public const string WebhookSubscriptions = "Administration.WebhookSubscriptions";
             public const string DynamicProperties = "Administration.DynamicProperties";
             public const string DynamicEntityProperties = "Administration.DynamicEntityProperties";
+            public const string FootballManager = "FootballManager";
         }
 
         public static class Host
         {
+            public const string Tables = "Tables.Tables";
             public const string Clubs = "Clubs.Clubs";
             public const string Vilages = "Vilages.Vilages";
             public const string Stadiums = "Stadiums.Stadiums";

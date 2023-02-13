@@ -1,4 +1,6 @@
-﻿using ES.QLBongDa.Clubs;
+﻿
+
+using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Vilages;
 
 using ES.QLBongDa.Stadiums;
@@ -16,11 +18,13 @@ using ES.QLBongDa.MultiTenancy;
 using ES.QLBongDa.MultiTenancy.Accounting;
 using ES.QLBongDa.MultiTenancy.Payments;
 using ES.QLBongDa.Storage;
+using ES.QLBongDa.Tables;
 
 namespace ES.QLBongDa.EntityFrameworkCore
 {
     public class QLBongDaDbContext : AbpZeroDbContext<Tenant, Role, User, QLBongDaDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Club> Clubs { get; set; }
 
         public virtual DbSet<Vilage> Vilages { get; set; }

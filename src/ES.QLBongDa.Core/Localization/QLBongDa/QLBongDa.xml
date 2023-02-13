@@ -1,9 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
   <texts>
+    <text name="Tables">Bảng Xếp Hạng</text>
+    <text name="Table">Bảng Xếp Hạng</text>
+    <text name="ES.QLBongDa.Tables.Table">Bảng Xếp Hạng</text>
+    <text name="nam">Năm</text>
+    <text name="vong">Vòng</text>
+    <text name="sotran">Số Trận</text>
+    <text name="thang">Thắng</text>
+    <text name="hoa">Hòa</text>
+    <text name="thua">Thua</text>
+    <text name="hieuso">Hiệu Số</text>
+    <text name="diem">Điểm</text>
+    <text name="TablesHeaderInfo">thông Tin Bảng Xếp Hạng</text>
+    <text name="CreateNewTable">Create new table</text>
+    <text name="EditTable">Edit table</text>
+    <text name="DeleteTable">Delete table</text>
+    <text name="ClubTENCLB">Câu Lạc Bộ</text>
+    <text name="PickClub">Pick club</text>
+
     <text name="Vilagetentinh">Tên Tỉnh/Thành Phố</text>
     <text name="PickVilage">Chọn Tỉnh/Thành Phố</text>
-
+	<text name="FootballManager">Quản Lý Bóng Đá</text>
     <text name="Vilages">Tỉnh/Thành Phố</text>
     <text name="Vilage">Tỉnh/Thành Phố</text>
     <text name="ES.QLBongDa.Vilages.Vilage">Tỉnh/Thành Phố</text>

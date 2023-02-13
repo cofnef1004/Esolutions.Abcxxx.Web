@@ -1778,14 +1778,6 @@ namespace ES.QLBongDa.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MASAN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MATINH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("StadiumId")
                         .HasColumnType("int");
 
@@ -1793,9 +1785,14 @@ namespace ES.QLBongDa.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("VilageId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("StadiumId");
+
+                    b.HasIndex("VilageId");
 
                     b.ToTable("Clubs");
                 });
@@ -2121,7 +2118,7 @@ namespace ES.QLBongDa.Migrations
                     b.ToTable("AppBinaryObjects");
                 });
 
-            modelBuilder.Entity("ES.QLBongDa.Vilages.Vilage", b =>
+            modelBuilder.Entity("ES.QLBongDa.Tables.Table", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2129,8 +2126,47 @@ namespace ES.QLBongDa.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("TenantId")
+                    b.Property<int>("diem")
                         .HasColumnType("int");
+
+                    b.Property<int>("hieuso")
+                        .HasColumnType("int");
+
+                    b.Property<int>("hoa")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("maclb")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("nam")
+                        .HasColumnType("int");
+
+                    b.Property<int>("sotran")
+                        .HasColumnType("int");
+
+                    b.Property<int>("thang")
+                        .HasColumnType("int");
+
+                    b.Property<int>("thua")
+                        .HasColumnType("int");
+
+                    b.Property<int>("vong")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("maclb");
+
+                    b.ToTable("Tables");
+                });
+
+            modelBuilder.Entity("ES.QLBongDa.Vilages.Vilage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("matinh")
                         .IsRequired()
@@ -2141,8 +2177,6 @@ namespace ES.QLBongDa.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TenantId");
 
                     b.ToTable("Vilages");
                 });
@@ -2410,7 +2444,13 @@ namespace ES.QLBongDa.Migrations
                         .WithMany()
                         .HasForeignKey("StadiumId");
 
+                    b.HasOne("ES.QLBongDa.Vilages.Vilage", "VilageFk")
+                        .WithMany()
+                        .HasForeignKey("VilageId");
+
                     b.Navigation("StadiumFk");
+
+                    b.Navigation("VilageFk");
                 });
 
             modelBuilder.Entity("ES.QLBongDa.MultiTenancy.Payments.SubscriptionPayment", b =>
@@ -2449,6 +2489,15 @@ namespace ES.QLBongDa.Migrations
                     b.Navigation("Edition");
 
                     b.Navigation("LastModifierUser");
+                });
+
+            modelBuilder.Entity("ES.QLBongDa.Tables.Table", b =>
+                {
+                    b.HasOne("ES.QLBongDa.Clubs.Club", "maclbFk")
+                        .WithMany()
+                        .HasForeignKey("maclb");
+
+                    b.Navigation("maclbFk");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>

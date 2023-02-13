@@ -30,6 +30,11 @@ namespace ES.QLBongDa.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
 
+            var tables = pages.CreateChildPermission(AppPermissions.Pages_Tables, L("Tables"), multiTenancySides: MultiTenancySides.Host);
+            tables.CreateChildPermission(AppPermissions.Pages_Tables_Create, L("CreateNewTable"), multiTenancySides: MultiTenancySides.Host);
+            tables.CreateChildPermission(AppPermissions.Pages_Tables_Edit, L("EditTable"), multiTenancySides: MultiTenancySides.Host);
+            tables.CreateChildPermission(AppPermissions.Pages_Tables_Delete, L("DeleteTable"), multiTenancySides: MultiTenancySides.Host);
+
             var vilages = pages.CreateChildPermission(AppPermissions.Pages_Vilages, L("Vilages"), multiTenancySides: MultiTenancySides.Host);
             vilages.CreateChildPermission(AppPermissions.Pages_Vilages_Create, L("CreateNewVilage"), multiTenancySides: MultiTenancySides.Host);
             vilages.CreateChildPermission(AppPermissions.Pages_Vilages_Edit, L("EditVilage"), multiTenancySides: MultiTenancySides.Host);

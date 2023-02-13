@@ -20,31 +20,7 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         url: "App/HostDashboard",
                         icon: "flaticon-line-graph",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Administration_Host_Dashboard)
-                    )
-                )
-                .AddItem(new MenuItemDefinition(
-                        AppPageNames.Host.Clubs,
-                        L("Clubs"),
-                        url: "App/Clubs",
-                        icon: "flaticon-more",
-                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Clubs)
-                    )
-                )
-                .AddItem(new MenuItemDefinition(
-                        AppPageNames.Host.Vilages,
-                        L("Vilages"),
-                        url: "App/Vilages",
-                        icon: "flaticon-more",
-                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Vilages)
-                    )
-                )
-                .AddItem(new MenuItemDefinition(
-                        AppPageNames.Host.Stadiums,
-                        L("Stadiums"),
-                        url: "App/Stadiums",
-                        icon: "flaticon-more",
-                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Stadiums)
-                    )
+                    )             
                 ).AddItem(new MenuItemDefinition(
                     AppPageNames.Host.Tenants,
                     L("Tenants"),
@@ -165,7 +141,40 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         icon: "flaticon-shapes",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_QLBongDaUiComponents)
                     )
-                );
+                )
+                .AddItem(new MenuItemDefinition(
+                        AppPageNames.Common.FootballManager,
+                        L("FootballManager"),
+                        icon: "flaticon-interface-8"
+                    ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Clubs,
+                        L("Clubs"),
+                        url: "App/Clubs",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Clubs)
+                        )
+                    ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Vilages,
+                        L("Vilages"),
+                        url: "App/Vilages",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Vilages)
+                        )
+                    ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Stadiums,
+                        L("Stadiums"),
+                        url: "App/Stadiums",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Stadiums)
+                        )
+                    ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Tables,
+                        L("Tables"),
+                        url: "App/Tables",
+                        icon: "flaticon-more"
+                        )
+                    )
+              );
         }
 
         private static ILocalizableString L(string name)
