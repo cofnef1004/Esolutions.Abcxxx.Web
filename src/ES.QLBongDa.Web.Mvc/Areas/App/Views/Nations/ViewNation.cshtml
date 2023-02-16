@@ -1,0 +1,46 @@
+﻿@using ES.QLBongDa.Web.Areas.App.Startup
+@using ES.QLBongDa.Web.Areas.App.Models.Nations
+@model NationViewModel
+@using ES.QLBongDa.Web.TagHelpers
+@{
+    ViewBag.CurrentPageName = AppPageNames.Host.Nations;
+}
+@section Scripts
+{
+    <script abp-src="/view-resources/Areas/App/Views/Nations/CreateOrEdit.js" asp-append-version="true"></script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid">
+
+                  @{
+                      var breadcrumbs = new List<BreadcrumbItem>()
+                      {
+                          new BreadcrumbItem("/App/Nations", L("Nations")),
+                          new BreadcrumbItem(L("Details")),
+                      };
+                   }
+                  <abp-page-subheader title='@L("Details")' breadcrumbs="breadcrumbs">                     
+                  </abp-page-subheader>
+             
+
+<div class="@(await GetContainerClass())">
+    <div class=" card card-custom gutter-b">
+        <div class=" card-body">
+             <div id="NationInformationsTab">        
+                    <div class="row">
+                                    <div class="col-6 mb-3">
+                <h6>@L("maqg") :</h6>
+                @Model.Nation.maqg
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("tenqg") :</h6>
+                @Model.Nation.tenqg
+            </div>
+
+                        
+                    </div>
+                </div>
+			</div>
+        </div>
+    </div>
+  </div>

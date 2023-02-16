@@ -30,6 +30,16 @@ namespace ES.QLBongDa.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
 
+            var hlVs = pages.CreateChildPermission(AppPermissions.Pages_HLVs, L("HLVs"), multiTenancySides: MultiTenancySides.Host);
+            hlVs.CreateChildPermission(AppPermissions.Pages_HLVs_Create, L("CreateNewHLV"), multiTenancySides: MultiTenancySides.Host);
+            hlVs.CreateChildPermission(AppPermissions.Pages_HLVs_Edit, L("EditHLV"), multiTenancySides: MultiTenancySides.Host);
+            hlVs.CreateChildPermission(AppPermissions.Pages_HLVs_Delete, L("DeleteHLV"), multiTenancySides: MultiTenancySides.Host);
+
+            var nations = pages.CreateChildPermission(AppPermissions.Pages_Nations, L("Nations"), multiTenancySides: MultiTenancySides.Host);
+            nations.CreateChildPermission(AppPermissions.Pages_Nations_Create, L("CreateNewNation"), multiTenancySides: MultiTenancySides.Host);
+            nations.CreateChildPermission(AppPermissions.Pages_Nations_Edit, L("EditNation"), multiTenancySides: MultiTenancySides.Host);
+            nations.CreateChildPermission(AppPermissions.Pages_Nations_Delete, L("DeleteNation"), multiTenancySides: MultiTenancySides.Host);
+
             var tables = pages.CreateChildPermission(AppPermissions.Pages_Tables, L("Tables"), multiTenancySides: MultiTenancySides.Host);
             tables.CreateChildPermission(AppPermissions.Pages_Tables_Create, L("CreateNewTable"), multiTenancySides: MultiTenancySides.Host);
             tables.CreateChildPermission(AppPermissions.Pages_Tables_Edit, L("EditTable"), multiTenancySides: MultiTenancySides.Host);

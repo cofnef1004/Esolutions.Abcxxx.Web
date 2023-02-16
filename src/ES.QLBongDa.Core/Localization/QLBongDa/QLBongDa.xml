@@ -1,7 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>
-    <text name="Tables">Bảng Xếp Hạng</text>
+  <texts>    <text name="HLVs">H l vs</text>
+    <text name="HLV">H l v</text>
+    <text name="ES.QLBongDa.HLVs.HLV">HLV</text>
+    <text name="mahlv">mahlv</text>
+    <text name="tenhlv">tenhlv</text>
+    <text name="namsinh">namsinh</text>
+    <text name="HLVsHeaderInfo">H l vs header info</text>
+    <text name="CreateNewHLV">Create new h l v</text>
+    <text name="EditHLV">Edit h l v</text>
+    <text name="DeleteHLV">Delete h l v</text>
+    <text name="Nationtenqg">Nationtenqg</text>
+    <text name="PickNation">Pick nation</text>
+
+    <text name="Nations">Quốc Gia</text>
+    <text name="Nation">Quốc Gia</text>
+    <text name="ES.QLBongDa.Nations.Nation">Quốc Gia</text>
+    <text name="maqg">Mã Quốc Gia</text>
+    <text name="tenqg">Tên Quốc Gia</text>
+    <text name="NationsHeaderInfo">Thông Tin Quốc Gia</text>
+    <text name="CreateNewNation">Tạo Mới Quốc Gia</text>
+    <text name="EditNation">Chỉnh Sửa Quốc Gia</text>
+    <text name="DeleteNation">Xóa Quốc Gia</text>
+
+	  <text name="Manager">Quản Lý</text>
+
+	  <text name="Tables">Bảng Xếp Hạng</text>
     <text name="Table">Bảng Xếp Hạng</text>
     <text name="ES.QLBongDa.Tables.Table">Bảng Xếp Hạng</text>
     <text name="nam">Năm</text>

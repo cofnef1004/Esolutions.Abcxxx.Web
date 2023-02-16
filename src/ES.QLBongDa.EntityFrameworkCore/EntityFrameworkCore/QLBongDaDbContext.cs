@@ -1,5 +1,7 @@
 ﻿
 
+using ES.QLBongDa.Nations;
+
 using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Vilages;
 
@@ -18,13 +20,14 @@ using ES.QLBongDa.MultiTenancy;
 using ES.QLBongDa.MultiTenancy.Accounting;
 using ES.QLBongDa.MultiTenancy.Payments;
 using ES.QLBongDa.Storage;
-using ES.QLBongDa.Tables;
 
 namespace ES.QLBongDa.EntityFrameworkCore
 {
     public class QLBongDaDbContext : AbpZeroDbContext<Tenant, Role, User, QLBongDaDbContext>, IAbpPersistedGrantDbContext
     {
-        public virtual DbSet<Table> Tables { get; set; }
+
+        public virtual DbSet<Nation> Nations { get; set; }
+
         public virtual DbSet<Club> Clubs { get; set; }
 
         public virtual DbSet<Vilage> Vilages { get; set; }
@@ -64,9 +67,9 @@ namespace ES.QLBongDa.EntityFrameworkCore
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BinaryObject>(b =>
-                                  {
-                                      b.HasIndex(e => new { e.TenantId });
-                                  });
+                                             {
+                                                 b.HasIndex(e => new { e.TenantId });
+                                             });
 
             modelBuilder.Entity<ChatMessage>(b =>
             {

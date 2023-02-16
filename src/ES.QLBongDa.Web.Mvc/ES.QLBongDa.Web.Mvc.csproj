@@ -22,9 +22,17 @@
 
   <ItemGroup>
     <Compile Remove="App_Data\**" />
+    <Compile Remove="Areas\App\Models\Tables\**" />
+    <Compile Remove="Areas\App\Views\Tables\**" />
     <Content Remove="App_Data\**" />
+    <Content Remove="Areas\App\Models\Tables\**" />
+    <Content Remove="Areas\App\Views\Tables\**" />
     <EmbeddedResource Remove="App_Data\**" />
+    <EmbeddedResource Remove="Areas\App\Models\Tables\**" />
+    <EmbeddedResource Remove="Areas\App\Views\Tables\**" />
     <None Remove="App_Data\**" />
+    <None Remove="Areas\App\Models\Tables\**" />
+    <None Remove="Areas\App\Views\Tables\**" />
   </ItemGroup>
 
   <ItemGroup>

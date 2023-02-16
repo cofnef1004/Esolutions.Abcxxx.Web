@@ -20,8 +20,9 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         url: "App/HostDashboard",
                         icon: "flaticon-line-graph",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Administration_Host_Dashboard)
-                    )             
-                ).AddItem(new MenuItemDefinition(
+                    )
+                )
+              .AddItem(new MenuItemDefinition(
                     AppPageNames.Host.Tenants,
                     L("Tenants"),
                     url: "App/Tenants",
@@ -168,11 +169,18 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Stadiums)
                         )
                     ).AddItem(new MenuItemDefinition(
-                        AppPageNames.Host.Tables,
-                        L("Tables"),
-                        url: "App/Tables",
-                        icon: "flaticon-more"
-                        )
+                        AppPageNames.Host.Nations,
+                        L("Nations"),
+                        url: "App/Nations",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Nations)
+                    )
+                )
+              )
+              .AddItem(new MenuItemDefinition(
+                        AppPageNames.Common.Manager,
+                        L("Manager"),
+                        icon: "flaticon-interface-8"
                     )
               );
         }

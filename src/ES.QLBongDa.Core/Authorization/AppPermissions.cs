@@ -6,6 +6,16 @@
     /// </summary>
     public static class AppPermissions
     {
+        public const string Pages_HLVs = "Pages.HLVs";
+        public const string Pages_HLVs_Create = "Pages.HLVs.Create";
+        public const string Pages_HLVs_Edit = "Pages.HLVs.Edit";
+        public const string Pages_HLVs_Delete = "Pages.HLVs.Delete";
+
+        public const string Pages_Nations = "Pages.Nations";
+        public const string Pages_Nations_Create = "Pages.Nations.Create";
+        public const string Pages_Nations_Edit = "Pages.Nations.Edit";
+        public const string Pages_Nations_Delete = "Pages.Nations.Delete";
+
         public const string Pages_Tables = "Pages.Tables";
         public const string Pages_Tables_Create = "Pages.Tables.Create";
         public const string Pages_Tables_Edit = "Pages.Tables.Edit";
@@ -25,8 +35,6 @@
         public const string Pages_Clubs_Create = "Pages.Clubs.Create";
         public const string Pages_Clubs_Edit = "Pages.Clubs.Edit";
         public const string Pages_Clubs_Delete = "Pages.Clubs.Delete";
-
-      
 
         //COMMON PERMISSIONS (FOR BOTH OF TENANTS AND HOST)
 

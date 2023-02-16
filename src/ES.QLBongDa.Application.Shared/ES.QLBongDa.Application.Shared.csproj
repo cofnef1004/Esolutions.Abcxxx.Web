@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Tables\**" />
+    <EmbeddedResource Remove="Tables\**" />
+    <None Remove="Tables\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Abp.Web.Common" Version="7.1.0" />
   </ItemGroup>
 

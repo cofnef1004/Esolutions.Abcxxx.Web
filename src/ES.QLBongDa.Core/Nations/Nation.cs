@@ -4,17 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities.Auditing;
 using Abp.Domain.Entities;
 
-namespace ES.QLBongDa.Vilages
+namespace ES.QLBongDa.Nations
 {
-    [Table("TINH")]
-    public class Vilage : Entity
+    [Table("QUOCGIA")]
+    public class Nation : Entity
     {
 
         [Required]
-        public virtual string matinh { get; set; }
+        public virtual string maqg { get; set; }
 
         [Required]
-        public virtual string tentinh { get; set; }
+        public virtual string tenqg { get; set; }
 
     }
 }

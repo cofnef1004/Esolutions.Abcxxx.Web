@@ -8,7 +8,7 @@ using Abp.Domain.Entities;
 
 namespace ES.QLBongDa.Clubs
 {
-    [Table("Clubs")]
+    [Table("CLB")]
     public class Club : Entity
     {
 

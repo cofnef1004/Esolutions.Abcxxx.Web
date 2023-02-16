@@ -6,7 +6,7 @@ using Abp.Domain.Entities;
 
 namespace ES.QLBongDa.Stadiums
 {
-    [Table("Stadiums")]
+    [Table("SVD")]
     public class Stadium : Entity
     {
 
