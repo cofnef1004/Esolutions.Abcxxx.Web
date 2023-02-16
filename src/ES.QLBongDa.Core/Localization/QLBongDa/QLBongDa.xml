@@ -1,17 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="HLVs">H l vs</text>
-    <text name="HLV">H l v</text>
-    <text name="ES.QLBongDa.HLVs.HLV">HLV</text>
-    <text name="mahlv">mahlv</text>
-    <text name="tenhlv">tenhlv</text>
-    <text name="namsinh">namsinh</text>
-    <text name="HLVsHeaderInfo">H l vs header info</text>
-    <text name="CreateNewHLV">Create new h l v</text>
-    <text name="EditHLV">Edit h l v</text>
-    <text name="DeleteHLV">Delete h l v</text>
-    <text name="Nationtenqg">Nationtenqg</text>
-    <text name="PickNation">Pick nation</text>
+  <texts>
+    <text name="Rankings">Bảng Xếp Hạng</text>
+    <text name="Ranking">Bảng Xếp Hạng</text>
+    <text name="ES.QLBongDa.Rankings.Ranking">Bảng Xếp Hạng</text>
+    <text name="tran">Số Trận</text>
+    <text name="RankingsHeaderInfo">Thông Tin Bảng Xếp Hạng</text>
+    <text name="CreateNewRanking">Create new ranking</text>
+    <text name="EditRanking">Edit ranking</text>
+    <text name="DeleteRanking">Delete ranking</text>
+
+    <text name="Matchs">Trận Đấu</text>
+    <text name="Match">Trận Đấu</text>
+    <text name="ES.QLBongDa.Matchs.Match">Trận Đấu</text>
+    <text name="Nam">Năm</text>
+    <text name="Vong">Vòng</text>
+    <text name="Ketqua">Kết Quả</text>
+    <text name="MatchsHeaderInfo">Thông Tin Trận Đấu</text>
+    <text name="CreateNewMatch">Thêm Trận Đấu</text>
+    <text name="EditMatch">Chỉnh Sửa Kết Quả Trận Đấu</text>
+    <text name="DeleteMatch">Xóa Trận Đấu</text>
+
+    <text name="Managers">Huấn Luyện Viên</text>
+    <text name="ES.QLBongDa.Managers.Manager">Huấn Luyện Viên</text>
+    <text name="Namsinh">Năm Sinh</text>
+    <text name="ManagersHeaderInfo">Thông Tin Huấn Luyện Viên</text>
+    <text name="CreateNewManager">Tạo Mới Huấn Luyện Viên</text>
+    <text name="EditManager">Chỉnh Sửa Huấn Luyện Viên</text>
+    <text name="DeleteManager">Xóa Huấn Luyện Viên</text>
+
+    <text name="Players">Cầu Thủ</text>
+    <text name="Player">Cầu Thủ</text>
+    <text name="ES.QLBongDa.Players.Player">Cầu Thủ</text>
+    <text name="Hoten">Họ Tên</text>
+    <text name="Vitri">Vị Trí</text>
+    <text name="soao">Số Áo</text>
+    <text name="PlayersHeaderInfo">Thông Tin Cầu Thủ</text>
+    <text name="CreateNewPlayer">Tạo Mới</text>
+    <text name="EditPlayer">Chỉnh Sửa Cầu Thủ</text>
+    <text name="DeletePlayer">Xóa Cầu Thủ</text>
+    <text name="ClubMACLB">Câu Lạc Bộ</text>
+    <text name="SelectAClub">Chọn Câu Lạc Bộ</text>
+    <text name="Nationmaqg">Quốc Tịch</text>
+    <text name="HuanLuyenVien">Huấn Luyện Viên</text>
+    <text name="ES.QLBongDa.HuanLuyenVien.HLV">Huấn Luyện Viên</text>
+    <text name="Mahlv">Mã Huấn Luyện Viên</text>
+    <text name="Tenhlv">Tên Huấn Luyện Viên</text>
+    <text name="SelectANation">Chọn Quốc Tịch</text>
+    <text name="SelectAStadium">Chọn Sân Vận Động</text>
+    <text name="SelectAVilage">Chọn Tỉnh/Thành Phố</text>
+    <text name="HLVs">Huấn Luyện Viên</text>
+    <text name="HLV">Huấn Luyện Viên</text>
+    <text name="ES.QLBongDa.HLVs.HLV">Huấn Luyện Viên</text>
+    <text name="mahlv">Mã Huấn Luyện Viên</text>
+    <text name="tenhlv">Tên Huấn Luyện Viên</text>
+    <text name="namsinh">Năm Sinh</text>
+    <text name="HLVsHeaderInfo">Thông Tin Huấn Luyện Viên</text>
+    <text name="CreateNewHLV">Tạo Huấn Luyện Viên</text>
+    <text name="EditHLV">Chỉnh Sửa Huấn Luyện Viên</text>
+    <text name="DeleteHLV">Xóa Huấn Luyện Viên</text>
+    <text name="Nationtenqg">Quốc Tịch</text>
+    <text name="PickNation">Chọn Quốc Tịch</text>
 
     <text name="Nations">Quốc Gia</text>
     <text name="Nation">Quốc Gia</text>
@@ -23,7 +72,7 @@
     <text name="EditNation">Chỉnh Sửa Quốc Gia</text>
     <text name="DeleteNation">Xóa Quốc Gia</text>
 
-	  <text name="Manager">Quản Lý</text>
+	  <text name="Manager">Quản Lý Vận Hành Giải Đấu</text>
 
 	  <text name="Tables">Bảng Xếp Hạng</text>
     <text name="Table">Bảng Xếp Hạng</text>
@@ -45,7 +94,7 @@
 
     <text name="Vilagetentinh">Tên Tỉnh/Thành Phố</text>
     <text name="PickVilage">Chọn Tỉnh/Thành Phố</text>
-	<text name="FootballManager">Quản Lý Bóng Đá</text>
+	<text name="FootballManager">Quản Lý Thông Tin Đội Bóng</text>
     <text name="Vilages">Tỉnh/Thành Phố</text>
     <text name="Vilage">Tỉnh/Thành Phố</text>
     <text name="ES.QLBongDa.Vilages.Vilage">Tỉnh/Thành Phố</text>
@@ -56,7 +105,8 @@
     <text name="EditVilage">Chỉnh Tỉnh/Thành Phố</text>
     <text name="DeleteVilage">Xóa Tỉnh/Thành Phố</text>
 
-    <text name="Clubs">Đội Bóng</text>
+	<text name="Clubs">Câu Lạc Bộ</text>
+    <text name="CluFootballManagerbs">Đội Bóng</text>
     <text name="Club">Đội Bóng</text>
     <text name="ES.QLBongDa.Clubs.Club">Đội Bóng</text>
     <text name="MACLB">Mã Đội Bóng</text>

@@ -1,8 +1,14 @@
-﻿
+﻿using ES.QLBongDa.Rankings;
+using ES.QLBongDa.Tables;
+using ES.QLBongDa.Matchs;
+
+using ES.QLBongDa.Managers;
+using ES.QLBongDa.Players;
+
+using ES.QLBongDa.Clubs;
 
 using ES.QLBongDa.Nations;
 
-using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Vilages;
 
 using ES.QLBongDa.Stadiums;
@@ -25,10 +31,17 @@ namespace ES.QLBongDa.EntityFrameworkCore
 {
     public class QLBongDaDbContext : AbpZeroDbContext<Tenant, Role, User, QLBongDaDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<Ranking> Rankings { get; set; }
 
-        public virtual DbSet<Nation> Nations { get; set; }
+        public virtual DbSet<Match> Matchs { get; set; }
+
+        public virtual DbSet<Manager> Managers { get; set; }
+
+        public virtual DbSet<Player> Players { get; set; }
 
         public virtual DbSet<Club> Clubs { get; set; }
+
+        public virtual DbSet<Nation> Nations { get; set; }
 
         public virtual DbSet<Vilage> Vilages { get; set; }
 
@@ -67,9 +80,9 @@ namespace ES.QLBongDa.EntityFrameworkCore
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BinaryObject>(b =>
-                                             {
-                                                 b.HasIndex(e => new { e.TenantId });
-                                             });
+                                                        {
+                                                            b.HasIndex(e => new { e.TenantId });
+                                                        });
 
             modelBuilder.Entity<ChatMessage>(b =>
             {

@@ -3,51 +3,52 @@
 @model ClubViewModel
 @using ES.QLBongDa.Web.TagHelpers
 @{
-ViewBag.CurrentPageName = AppPageNames.Host.Clubs;
+    ViewBag.CurrentPageName = AppPageNames.Host.Clubs;
 }
 @section Scripts
 {
-<script abp-src="/view-resources/Areas/App/Views/Clubs/CreateOrEdit.js" asp-append-version="true"></script>
+    <script abp-src="/view-resources/Areas/App/Views/Clubs/CreateOrEdit.js" asp-append-version="true"></script>
 }
 
 <div class="content d-flex flex-column flex-column-fluid">
 
-    @{
-    var breadcrumbs = new List<BreadcrumbItem>()
-        {
-        new BreadcrumbItem("/App/Clubs", L("Clubs")),
-        new BreadcrumbItem(L("Details")),
-        };
-        }
-        <abp-page-subheader title='@L("Details")' breadcrumbs="breadcrumbs">
-        </abp-page-subheader>
+                  @{
+                      var breadcrumbs = new List<BreadcrumbItem>()
+                      {
+                          new BreadcrumbItem("/App/Clubs", L("Clubs")),
+                          new BreadcrumbItem(L("Details")),
+                      };
+                   }
+                  <abp-page-subheader title='@L("Details")' breadcrumbs="breadcrumbs">                     
+                  </abp-page-subheader>
+             
 
-        <div class="@(await GetContainerClass())">
-            <div class=" card card-custom gutter-b">
-                <div class=" card-body">
-                    <div id="ClubInformationsTab">
-                        <div class="row">
-                            <div class="col-6 mb-3">
-                                <h6>@L("MACLB") :</h6>
-                                @Model.Club.MACLB
-                            </div>
-                            <div class="col-6 mb-3">
-                                <h6>@L("TENCLB") :</h6>
-                                @Model.Club.TENCLB
-                            </div>
+<div class="@(await GetContainerClass())">
+    <div class=" card card-custom gutter-b">
+        <div class=" card-body">
+             <div id="ClubInformationsTab">        
+                    <div class="row">
+                                    <div class="col-6 mb-3">
+                <h6>@L("MACLB") :</h6>
+                @Model.Club.MACLB
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("TENCLB") :</h6>
+                @Model.Club.TENCLB
+            </div>
 
-                            <div class="col-6 mb-3">
-                                <h6>(@L("Stadium")) @L("Tensan") :</h6>
-                                @Model.StadiumTensan
-                            </div>
-                            <div class="col-6 mb-3">
-                                <h6>(@L("Vilage")) @L("tentinh") :</h6>
-                                @Model.Vilagetentinh
-                            </div>
+                                    <div class="col-6 mb-3">
+                <h6>(@L("Stadium")) @L("Tensan") :</h6>
+                @Model.StadiumTensan
+            </div>
+            <div class="col-6 mb-3">
+                <h6>(@L("Vilage")) @L("tentinh") :</h6>
+                @Model.Vilagetentinh
+            </div>
 
-                        </div>
                     </div>
                 </div>
-            </div>
+			</div>
         </div>
-</div>
+    </div>
+  </div>

@@ -21,8 +21,7 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         icon: "flaticon-line-graph",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Administration_Host_Dashboard)
                     )
-                )
-              .AddItem(new MenuItemDefinition(
+                ).AddItem(new MenuItemDefinition(
                     AppPageNames.Host.Tenants,
                     L("Tenants"),
                     url: "App/Tenants",
@@ -148,13 +147,6 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         L("FootballManager"),
                         icon: "flaticon-interface-8"
                     ).AddItem(new MenuItemDefinition(
-                        AppPageNames.Host.Clubs,
-                        L("Clubs"),
-                        url: "App/Clubs",
-                        icon: "flaticon-more",
-                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Clubs)
-                        )
-                    ).AddItem(new MenuItemDefinition(
                         AppPageNames.Host.Vilages,
                         L("Vilages"),
                         url: "App/Vilages",
@@ -175,13 +167,48 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         icon: "flaticon-more",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Nations)
                     )
-                )
+                ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Clubs,
+                        L("Clubs"),
+                        url: "App/Clubs",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Clubs)
+                    )
+                ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Players,
+                        L("Players"),
+                        url: "App/Players",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Players)
+                    )
+                ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Managers,
+                        L("Managers"),
+                        url: "App/Managers",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Managers)
+                    )
               )
+        )
               .AddItem(new MenuItemDefinition(
                         AppPageNames.Common.Manager,
                         L("Manager"),
                         icon: "flaticon-interface-8"
+                    ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Matchs,
+                        L("Matchs"),
+                        url: "App/Matchs",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Matchs)
                     )
+                 ).AddItem(new MenuItemDefinition(
+                        AppPageNames.Host.Rankings,
+                        L("Rankings"),
+                        url: "App/Rankings",
+                        icon: "flaticon-more",
+                        permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Rankings)
+                    )
+                 )
               );
         }
 

@@ -56,6 +56,8 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Club = getClubForEditOutput.Club,
                 StadiumTensan = getClubForEditOutput.StadiumTensan,
                 Vilagetentinh = getClubForEditOutput.Vilagetentinh,
+                ClubStadiumList = await _clubsAppService.GetAllStadiumForTableDropdown(),
+                ClubVilageList = await _clubsAppService.GetAllVilageForTableDropdown(),
             };
 
             return View(viewModel);
@@ -77,31 +79,6 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             };
 
             return View(model);
-        }
-
-        [AbpMvcAuthorize(AppPermissions.Pages_Clubs_Create, AppPermissions.Pages_Clubs_Edit)]
-        public PartialViewResult StadiumLookupTableModal(int? id, string displayName)
-        {
-            var viewModel = new ClubStadiumLookupTableViewModel()
-            {
-                Id = id,
-                DisplayName = displayName,
-                FilterText = ""
-            };
-
-            return PartialView("_ClubStadiumLookupTableModal", viewModel);
-        }
-        [AbpMvcAuthorize(AppPermissions.Pages_Clubs_Create, AppPermissions.Pages_Clubs_Edit)]
-        public PartialViewResult VilageLookupTableModal(int? id, string displayName)
-        {
-            var viewModel = new ClubVilageLookupTableViewModel()
-            {
-                Id = id,
-                DisplayName = displayName,
-                FilterText = ""
-            };
-
-            return PartialView("_ClubVilageLookupTableModal", viewModel);
         }
 
     }

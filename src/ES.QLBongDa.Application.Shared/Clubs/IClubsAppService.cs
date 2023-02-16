@@ -4,6 +4,8 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using ES.QLBongDa.Clubs.Dtos;
 using ES.QLBongDa.Dto;
+using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace ES.QLBongDa.Clubs
 {
@@ -21,9 +23,9 @@ namespace ES.QLBongDa.Clubs
 
         Task<FileDto> GetClubsToExcel(GetAllClubsForExcelInput input);
 
-        Task<PagedResultDto<ClubStadiumLookupTableDto>> GetAllStadiumForLookupTable(GetAllForLookupTableInput input);
+        Task<List<ClubStadiumLookupTableDto>> GetAllStadiumForTableDropdown();
 
-        Task<PagedResultDto<ClubVilageLookupTableDto>> GetAllVilageForLookupTable(GetAllForLookupTableInput input);
+        Task<List<ClubVilageLookupTableDto>> GetAllVilageForTableDropdown();
 
     }
 }

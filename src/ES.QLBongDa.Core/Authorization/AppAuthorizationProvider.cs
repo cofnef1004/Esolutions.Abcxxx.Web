@@ -30,10 +30,25 @@ namespace ES.QLBongDa.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
 
-            var hlVs = pages.CreateChildPermission(AppPermissions.Pages_HLVs, L("HLVs"), multiTenancySides: MultiTenancySides.Host);
-            hlVs.CreateChildPermission(AppPermissions.Pages_HLVs_Create, L("CreateNewHLV"), multiTenancySides: MultiTenancySides.Host);
-            hlVs.CreateChildPermission(AppPermissions.Pages_HLVs_Edit, L("EditHLV"), multiTenancySides: MultiTenancySides.Host);
-            hlVs.CreateChildPermission(AppPermissions.Pages_HLVs_Delete, L("DeleteHLV"), multiTenancySides: MultiTenancySides.Host);
+            var rankings = pages.CreateChildPermission(AppPermissions.Pages_Rankings, L("Rankings"), multiTenancySides: MultiTenancySides.Host);
+            rankings.CreateChildPermission(AppPermissions.Pages_Rankings_Create, L("CreateNewRanking"), multiTenancySides: MultiTenancySides.Host);
+            rankings.CreateChildPermission(AppPermissions.Pages_Rankings_Edit, L("EditRanking"), multiTenancySides: MultiTenancySides.Host);
+            rankings.CreateChildPermission(AppPermissions.Pages_Rankings_Delete, L("DeleteRanking"), multiTenancySides: MultiTenancySides.Host);
+
+            var matchs = pages.CreateChildPermission(AppPermissions.Pages_Matchs, L("Matchs"), multiTenancySides: MultiTenancySides.Host);
+            matchs.CreateChildPermission(AppPermissions.Pages_Matchs_Create, L("CreateNewMatch"), multiTenancySides: MultiTenancySides.Host);
+            matchs.CreateChildPermission(AppPermissions.Pages_Matchs_Edit, L("EditMatch"), multiTenancySides: MultiTenancySides.Host);
+            matchs.CreateChildPermission(AppPermissions.Pages_Matchs_Delete, L("DeleteMatch"), multiTenancySides: MultiTenancySides.Host);
+
+            var managers = pages.CreateChildPermission(AppPermissions.Pages_Managers, L("Managers"), multiTenancySides: MultiTenancySides.Host);
+            managers.CreateChildPermission(AppPermissions.Pages_Managers_Create, L("CreateNewManager"), multiTenancySides: MultiTenancySides.Host);
+            managers.CreateChildPermission(AppPermissions.Pages_Managers_Edit, L("EditManager"), multiTenancySides: MultiTenancySides.Host);
+            managers.CreateChildPermission(AppPermissions.Pages_Managers_Delete, L("DeleteManager"), multiTenancySides: MultiTenancySides.Host);
+
+            var players = pages.CreateChildPermission(AppPermissions.Pages_Players, L("Players"), multiTenancySides: MultiTenancySides.Host);
+            players.CreateChildPermission(AppPermissions.Pages_Players_Create, L("CreateNewPlayer"), multiTenancySides: MultiTenancySides.Host);
+            players.CreateChildPermission(AppPermissions.Pages_Players_Edit, L("EditPlayer"), multiTenancySides: MultiTenancySides.Host);
+            players.CreateChildPermission(AppPermissions.Pages_Players_Delete, L("DeletePlayer"), multiTenancySides: MultiTenancySides.Host);
 
             var nations = pages.CreateChildPermission(AppPermissions.Pages_Nations, L("Nations"), multiTenancySides: MultiTenancySides.Host);
             nations.CreateChildPermission(AppPermissions.Pages_Nations_Create, L("CreateNewNation"), multiTenancySides: MultiTenancySides.Host);

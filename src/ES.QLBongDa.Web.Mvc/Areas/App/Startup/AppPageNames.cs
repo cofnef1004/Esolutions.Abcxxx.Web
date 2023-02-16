@@ -21,8 +21,12 @@
 
         public static class Host
         {
-            public const string Nations = "Nations.Nations";
+            public const string Rankings = "Rankings.Rankings";
+            public const string Matchs = "Matchs.Matchs";
+            public const string Managers = "Managers.Managers";
+            public const string Players = "Players.Players";
             public const string Clubs = "Clubs.Clubs";
+            public const string Nations = "Nations.Nations";
             public const string Vilages = "Vilages.Vilages";
             public const string Stadiums = "Stadiums.Stadiums";
             public const string Tenants = "Tenants";

@@ -1,0 +1,56 @@
+﻿
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Tables
+@model TableViewModel
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Details")))
+
+<div class="modal-body">
+    <div id="TableInformationsTab">
+        
+        <div class="row">
+            <div class="col-6 mb-3">
+                <h6>@L("nam") :</h6>
+                @Model.Table.nam
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("vong") :</h6>
+                @Model.Table.vong
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("sotran") :</h6>
+                @Model.Table.sotran
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("thang") :</h6>
+                @Model.Table.thang
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("hoa") :</h6>
+                @Model.Table.hoa
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("thua") :</h6>
+                @Model.Table.thua
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("hieuso") :</h6>
+                @Model.Table.hieuso
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("diem") :</h6>
+                @Model.Table.diem
+            </div>
+
+            <div class="col-6 mb-3">
+                <h6>(@L("Club")) @L("TENCLB") :</h6>
+                @Model.ClubTENCLB
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithClose.cshtml")
+

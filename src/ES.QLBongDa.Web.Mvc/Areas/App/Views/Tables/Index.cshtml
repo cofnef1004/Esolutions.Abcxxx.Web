@@ -1,0 +1,157 @@
+﻿@using ES.QLBongDa.Authorization
+@using ES.QLBongDa.Web.Areas.App.Models.Tables
+@using ES.QLBongDa.Web.Areas.App.Startup
+@model TablesViewModel
+@{
+    ViewBag.CurrentPageName = AppPageNames.Host.Tables;
+}
+@section Scripts
+{
+    <script abp-src="/view-resources/Areas/App/Views/Tables/Index.js" asp-append-version="true"></script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid">
+
+                <abp-page-subheader title='@L("Tables")' description='@L("TablesHeaderInfo")'>
+                     
+                     @if (IsGranted(AppPermissions.Pages_Tables_Create))
+                     {
+                         <button id="CreateNewTableButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTable")</button>                
+                     }
+                </abp-page-subheader>
+            
+<div class="@(await GetContainerClass())">   
+    <div class="card card-custom gutter-b">
+        <div class="card-body">
+            <div class="form">
+                <div class="row align-items-center mb-4">
+                    <div class="col-xl-12">                        
+                        
+                        
+                <div class="my-3">
+                    <div class="input-group">
+                        <input type="text" id="TablesTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">
+                        <button id="GetTablesButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>                        
+                    </div>
+                </div>
+            
+                    </div>
+                </div>
+			</div>
+                <div id="AdvacedAuditFiltersArea" style="display: none" class="row mb-4">
+                    <div class="col-md-12">
+						
+					</div>
+
+
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinnamFilterId">@L("MinMax") @L("nam")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minnamFilter" id="MinnamFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxnamFilter"  id="MaxnamFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinvongFilterId">@L("MinMax") @L("vong")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minvongFilter" id="MinvongFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxvongFilter"  id="MaxvongFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinsotranFilterId">@L("MinMax") @L("sotran")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minsotranFilter" id="MinsotranFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxsotranFilter"  id="MaxsotranFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinthangFilterId">@L("MinMax") @L("thang")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minthangFilter" id="MinthangFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxthangFilter"  id="MaxthangFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinhoaFilterId">@L("MinMax") @L("hoa")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minhoaFilter" id="MinhoaFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxhoaFilter"  id="MaxhoaFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinthuaFilterId">@L("MinMax") @L("thua")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minthuaFilter" id="MinthuaFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxthuaFilter"  id="MaxthuaFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MinhieusoFilterId">@L("MinMax") @L("hieuso")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minhieusoFilter" id="MinhieusoFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxhieusoFilter"  id="MaxhieusoFilterId"/>
+									</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                 <div class="my-3">
+									<label class="form-label" for="MindiemFilterId">@L("MinMax") @L("diem")</label>
+									<div class="input-group">
+										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="mindiemFilter" id="MindiemFilterId"/>
+                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxdiemFilter"  id="MaxdiemFilterId"/>
+									</div>
+                                </div>
+                            </div>
+
+
+							<div class="col-md-3">
+								<div class="my-3">
+									<label class="form-label" for="ClubTENCLBFilterId">(@L("Club")) @L("TENCLB")</label>
+									<input type="text" class="form-control" name="clubTENCLBFilter" id="ClubTENCLBFilterId">
+								</div>
+                            </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-xl-12">
+                        <span id="ShowAdvancedFiltersSpan" class="text-muted clickable-item"><i class="fa fa-angle-down"></i> @L("ShowAdvancedFilters")</span>
+                        <span id="HideAdvancedFiltersSpan" class="text-muted clickable-item" style="display: none"><i class="fa fa-angle-up"></i> @L("HideAdvancedFilters")</span>
+                    </div>
+                </div>
+            <div class="row align-items-center">
+                <table id="TablesTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            
+                            <th>@L("Actions")</th>
+								<th>@L("nam")</th>
+								<th>@L("vong")</th>
+								<th>@L("sotran")</th>
+								<th>@L("thang")</th>
+								<th>@L("hoa")</th>
+								<th>@L("thua")</th>
+								<th>@L("hieuso")</th>
+								<th>@L("diem")</th>
+								<th>@L("ClubTENCLB")</th>                            
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
   "EntityHistory": false,
   "AutoMigration": false,
   "UpdateDatabase": false,
-  "CreateUserInterface": false,
+  "CreateUserInterface": true,
   "CreateViewOnly": true,
   "CreateExcelExport": false,
   "IsNonModalCRUDPage": false,
@@ -191,7 +191,7 @@
       "DisplayPropertyName": "TENCLB",
       "DuplicationNumber": 0,
       "RelationType": "single",
-      "ViewType": "LookupTable"
+      "ViewType": "Dropdown"
     }
   ],
   "NavigationPropertyOneToManyTables": [],

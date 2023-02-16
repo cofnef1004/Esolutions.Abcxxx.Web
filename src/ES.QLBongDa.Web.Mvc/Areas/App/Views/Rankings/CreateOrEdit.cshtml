@@ -1,0 +1,106 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Authorization
+@using ES.QLBongDa.Web.Areas.App.Models.Rankings
+@using ES.QLBongDa.Web.Areas.App.Startup
+@model CreateOrEditRankingViewModel
+@using ES.QLBongDa.Web.TagHelpers
+@{
+    ViewBag.CurrentPageName = AppPageNames.Host.Rankings;
+}
+@section Scripts
+{
+    <script abp-src="/view-resources/Areas/App/Views/Rankings/CreateOrEdit.js" asp-append-version="true"></script>
+}
+ 
+<div class="content d-flex flex-column flex-column-fluid">
+
+                @{
+                    var breadcrumbs = new List<BreadcrumbItem>()
+                    {
+                        new BreadcrumbItem("/App/Rankings", L("Rankings")),
+                        new BreadcrumbItem(Model.IsEditMode ? L("Edit") : L("Create"))
+                    };
+                }
+                <abp-page-subheader title='@(Model.IsEditMode ? (L("EditRanking")) : L("CreateNewRanking"))' breadcrumbs="breadcrumbs">                 
+                </abp-page-subheader>
+            
+
+<div class="@(await GetContainerClass())">
+    <div class="card card-custom gutter-b">
+        <form name="RankingInformationsForm" role="form" novalidate class="form-validation">
+            <div class="card-body">
+                <div class="form">
+                     <div id="RankingInformationsTab">   
+                            @if (Model.IsEditMode)
+                            {
+                                <input type="hidden" name="id" value="@Model.Ranking.Id" />
+                            }
+
+				            
+                                        
+						<div class="my-3">
+							<label class="form-label" for="maclb">@L("Club")</label>
+							@Html.DropDownList("maclb", new SelectList(Model.RankingClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Ranking.maclb.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+						</div>
+
+				            
+                            
+								<div class="my-3">
+									<label class="form-label" for="Ranking_nam">@L("nam")</label>
+									<input class="form-control m-input" id="Ranking_nam" value="@Model.Ranking.nam.ToString(CultureInfo.InvariantCulture)" type="number" name="nam"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_vong">@L("vong")</label>
+									<input class="form-control m-input" id="Ranking_vong" value="@Model.Ranking.vong.ToString(CultureInfo.InvariantCulture)" type="number" name="vong"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_tran">@L("tran")</label>
+									<input class="form-control m-input" id="Ranking_tran" value="@Model.Ranking.tran.ToString(CultureInfo.InvariantCulture)" type="number" name="tran"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_thang">@L("thang")</label>
+									<input class="form-control m-input" id="Ranking_thang" value="@Model.Ranking.thang.ToString(CultureInfo.InvariantCulture)" type="number" name="thang"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_hoa">@L("hoa")</label>
+									<input class="form-control m-input" id="Ranking_hoa" value="@Model.Ranking.hoa.ToString(CultureInfo.InvariantCulture)" type="number" name="hoa"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_thua">@L("thua")</label>
+									<input class="form-control m-input" id="Ranking_thua" value="@Model.Ranking.thua.ToString(CultureInfo.InvariantCulture)" type="number" name="thua"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_hieuso">@L("hieuso")</label>
+									<input class="form-control m-input" id="Ranking_hieuso" value="@Model.Ranking.hieuso.ToString(CultureInfo.InvariantCulture)" type="number" name="hieuso"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Ranking_diem">@L("diem")</label>
+									<input class="form-control m-input" id="Ranking_diem" value="@Model.Ranking.diem.ToString(CultureInfo.InvariantCulture)" type="number" name="diem"   />
+								</div>
+					
+                    </div>
+			    </div>            
+            </div>
+            <div class="card-footer">
+			    <div class="row align-items-center">
+				    <div class="col-lg-12">
+					    <button type="button" id="saveBtn" class="btn btn-success float-right"><i class="fa fa-save"></i> @L("Save")</button>
+					    @if (!Model.IsEditMode)
+                        {
+					        <button type="button" id="saveAndNewBtn" class="btn btn-success float-right"><i class="fa fa-save"></i> @L("SaveAndNew")</button>
+					    }
+				    </div>
+			    </div>
+		    </div>
+         </form>
+    </div>
+  </div>
+</div>

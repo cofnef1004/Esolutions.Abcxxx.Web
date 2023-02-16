@@ -1,0 +1,91 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Authorization
+@using ES.QLBongDa.Web.Areas.App.Models.Matchs
+@using ES.QLBongDa.Web.Areas.App.Startup
+@model CreateOrEditMatchViewModel
+@using ES.QLBongDa.Web.TagHelpers
+@{
+    ViewBag.CurrentPageName = AppPageNames.Host.Matchs;
+}
+@section Scripts
+{
+    <script abp-src="/view-resources/Areas/App/Views/Matchs/CreateOrEdit.js" asp-append-version="true"></script>
+}
+ 
+<div class="content d-flex flex-column flex-column-fluid">
+
+                @{
+                    var breadcrumbs = new List<BreadcrumbItem>()
+                    {
+                        new BreadcrumbItem("/App/Matchs", L("Matchs")),
+                        new BreadcrumbItem(Model.IsEditMode ? L("Edit") : L("Create"))
+                    };
+                }
+                <abp-page-subheader title='@(Model.IsEditMode ? (L("EditMatch")) : L("CreateNewMatch"))' breadcrumbs="breadcrumbs">                 
+                </abp-page-subheader>
+            
+
+<div class="@(await GetContainerClass())">
+    <div class="card card-custom gutter-b">
+        <form name="MatchInformationsForm" role="form" novalidate class="form-validation">
+            <div class="card-body">
+                <div class="form">
+                     <div id="MatchInformationsTab">   
+                            @if (Model.IsEditMode)
+                            {
+                                <input type="hidden" name="id" value="@Model.Match.Id" />
+                            }
+
+				            
+                                        
+						<div class="my-3">
+							<label class="form-label" for="maclb1">@L("Club")</label>
+							@Html.DropDownList("maclb1", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb1.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+						</div>
+            
+						<div class="my-3">
+							<label class="form-label" for="maclb2">@L("Club")</label>
+							@Html.DropDownList("maclb2", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb2.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+						</div>
+            
+						<div class="my-3">
+							<label class="form-label" for="masan">@L("Stadium")</label>
+							@Html.DropDownList("masan", new SelectList(Model.MatchStadiumList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Masan.ToString() : "")),@L("SelectAStadium"), new { @class = "form-control"   })
+						</div>
+
+				            
+                            
+								<div class="my-3">
+									<label class="form-label" for="Match_Nam">@L("Nam")</label>
+									<input class="form-control m-input" id="Match_Nam" value="@Model.Match.Nam.ToString(CultureInfo.InvariantCulture)" type="number" name="nam"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Match_Vong">@L("Vong")</label>
+									<input class="form-control m-input" id="Match_Vong" value="@Model.Match.Vong.ToString(CultureInfo.InvariantCulture)" type="number" name="vong"   />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Match_Ketqua">@L("Ketqua")</label>
+									<input class="form-control" id="Match_Ketqua" value="@Model.Match.Ketqua" type="text" name="ketqua"  required    />
+								</div>
+					
+                    </div>
+			    </div>            
+            </div>
+            <div class="card-footer">
+			    <div class="row align-items-center">
+				    <div class="col-lg-12">
+					    <button type="button" id="saveBtn" class="btn btn-success float-right"><i class="fa fa-save"></i> @L("Save")</button>
+					    @if (!Model.IsEditMode)
+                        {
+					        <button type="button" id="saveAndNewBtn" class="btn btn-success float-right"><i class="fa fa-save"></i> @L("SaveAndNew")</button>
+					    }
+				    </div>
+			    </div>
+		    </div>
+         </form>
+    </div>
+  </div>
+</div>

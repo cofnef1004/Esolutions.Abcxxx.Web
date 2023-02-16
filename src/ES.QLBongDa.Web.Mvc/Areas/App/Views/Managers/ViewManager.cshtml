@@ -1,0 +1,54 @@
+﻿@using ES.QLBongDa.Web.Areas.App.Startup
+@using ES.QLBongDa.Web.Areas.App.Models.Managers
+@model ManagerViewModel
+@using ES.QLBongDa.Web.TagHelpers
+@{
+    ViewBag.CurrentPageName = AppPageNames.Host.Managers;
+}
+@section Scripts
+{
+    <script abp-src="/view-resources/Areas/App/Views/Managers/CreateOrEdit.js" asp-append-version="true"></script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid">
+
+                  @{
+                      var breadcrumbs = new List<BreadcrumbItem>()
+                      {
+                          new BreadcrumbItem("/App/Managers", L("Managers")),
+                          new BreadcrumbItem(L("Details")),
+                      };
+                   }
+                  <abp-page-subheader title='@L("Details")' breadcrumbs="breadcrumbs">                     
+                  </abp-page-subheader>
+             
+
+<div class="@(await GetContainerClass())">
+    <div class=" card card-custom gutter-b">
+        <div class=" card-body">
+             <div id="ManagerInformationsTab">        
+                    <div class="row">
+                                    <div class="col-6 mb-3">
+                <h6>@L("Mahlv") :</h6>
+                @Model.Manager.Mahlv
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Tenhlv") :</h6>
+                @Model.Manager.Tenhlv
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Namsinh") :</h6>
+                @Model.Manager.Namsinh
+            </div>
+
+                                    <div class="col-6 mb-3">
+                <h6>(@L("Nation")) @L("tenqg") :</h6>
+                @Model.Nationtenqg
+            </div>
+
+                    </div>
+                </div>
+			</div>
+        </div>
+    </div>
+  </div>

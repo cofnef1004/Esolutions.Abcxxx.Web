@@ -216,63 +216,25 @@ namespace ES.QLBongDa.Clubs
         }
 
         [AbpAuthorize(AppPermissions.Pages_Clubs)]
-        public async Task<PagedResultDto<ClubStadiumLookupTableDto>> GetAllStadiumForLookupTable(GetAllForLookupTableInput input)
+        public async Task<List<ClubStadiumLookupTableDto>> GetAllStadiumForTableDropdown()
         {
-            var query = _lookup_stadiumRepository.GetAll().WhereIf(
-                   !string.IsNullOrWhiteSpace(input.Filter),
-                  e => e.Tensan != null && e.Tensan.Contains(input.Filter)
-               );
-
-            var totalCount = await query.CountAsync();
-
-            var stadiumList = await query
-                .PageBy(input)
-                .ToListAsync();
-
-            var lookupTableDtoList = new List<ClubStadiumLookupTableDto>();
-            foreach (var stadium in stadiumList)
-            {
-                lookupTableDtoList.Add(new ClubStadiumLookupTableDto
+            return await _lookup_stadiumRepository.GetAll()
+                .Select(stadium => new ClubStadiumLookupTableDto
                 {
                     Id = stadium.Id,
-                    DisplayName = stadium.Tensan?.ToString()
-                });
-            }
-
-            return new PagedResultDto<ClubStadiumLookupTableDto>(
-                totalCount,
-                lookupTableDtoList
-            );
+                    DisplayName = stadium == null || stadium.Tensan == null ? "" : stadium.Tensan.ToString()
+                }).ToListAsync();
         }
 
         [AbpAuthorize(AppPermissions.Pages_Clubs)]
-        public async Task<PagedResultDto<ClubVilageLookupTableDto>> GetAllVilageForLookupTable(GetAllForLookupTableInput input)
+        public async Task<List<ClubVilageLookupTableDto>> GetAllVilageForTableDropdown()
         {
-            var query = _lookup_vilageRepository.GetAll().WhereIf(
-                   !string.IsNullOrWhiteSpace(input.Filter),
-                  e => e.tentinh != null && e.tentinh.Contains(input.Filter)
-               );
-
-            var totalCount = await query.CountAsync();
-
-            var vilageList = await query
-                .PageBy(input)
-                .ToListAsync();
-
-            var lookupTableDtoList = new List<ClubVilageLookupTableDto>();
-            foreach (var vilage in vilageList)
-            {
-                lookupTableDtoList.Add(new ClubVilageLookupTableDto
+            return await _lookup_vilageRepository.GetAll()
+                .Select(vilage => new ClubVilageLookupTableDto
                 {
                     Id = vilage.Id,
-                    DisplayName = vilage.tentinh?.ToString()
-                });
-            }
-
-            return new PagedResultDto<ClubVilageLookupTableDto>(
-                totalCount,
-                lookupTableDtoList
-            );
+                    DisplayName = vilage == null || vilage.tentinh == null ? "" : vilage.tentinh.ToString()
+                }).ToListAsync();
         }
 
     }

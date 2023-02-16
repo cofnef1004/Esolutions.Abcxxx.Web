@@ -1,0 +1,72 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Tables
+@model CreateOrEditTableModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditTable")) : L("CreateNewTable")))
+
+<div class="modal-body">
+        <div id="TableInformationsTab">
+            <form name="TableInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.Table.Id" />
+                }
+
+				
+                            
+						<div class="my-3">
+							<label class="form-label" for="maclb">@L("Club")</label>
+							@Html.DropDownList("maclb", new SelectList(Model.TableClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Table.maclb.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+						</div>
+
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="Table_nam">@L("nam")</label>
+									<input class="form-control m-input" id="Table_nam" value="@Model.Table.nam?.ToString(CultureInfo.InvariantCulture)" type="number" name="nam"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_vong">@L("vong")</label>
+									<input class="form-control m-input" id="Table_vong" value="@Model.Table.vong.ToString(CultureInfo.InvariantCulture)" type="number" name="vong"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_sotran">@L("sotran")</label>
+									<input class="form-control m-input" id="Table_sotran" value="@Model.Table.sotran.ToString(CultureInfo.InvariantCulture)" type="number" name="sotran"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_thang">@L("thang")</label>
+									<input class="form-control m-input" id="Table_thang" value="@Model.Table.thang.ToString(CultureInfo.InvariantCulture)" type="number" name="thang"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_hoa">@L("hoa")</label>
+									<input class="form-control m-input" id="Table_hoa" value="@Model.Table.hoa.ToString(CultureInfo.InvariantCulture)" type="number" name="hoa"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_thua">@L("thua")</label>
+									<input class="form-control m-input" id="Table_thua" value="@Model.Table.thua.ToString(CultureInfo.InvariantCulture)" type="number" name="thua"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_hieuso">@L("hieuso")</label>
+									<input class="form-control m-input" id="Table_hieuso" value="@Model.Table.hieuso.ToString(CultureInfo.InvariantCulture)" type="number" name="hieuso"  />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Table_diem">@L("diem")</label>
+									<input class="form-control m-input" id="Table_diem" value="@Model.Table.diem.ToString(CultureInfo.InvariantCulture)" type="number" name="diem"  />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

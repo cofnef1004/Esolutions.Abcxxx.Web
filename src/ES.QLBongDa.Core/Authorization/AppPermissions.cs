@@ -6,6 +6,26 @@
     /// </summary>
     public static class AppPermissions
     {
+        public const string Pages_Rankings = "Pages.Rankings";
+        public const string Pages_Rankings_Create = "Pages.Rankings.Create";
+        public const string Pages_Rankings_Edit = "Pages.Rankings.Edit";
+        public const string Pages_Rankings_Delete = "Pages.Rankings.Delete";
+
+        public const string Pages_Matchs = "Pages.Matchs";
+        public const string Pages_Matchs_Create = "Pages.Matchs.Create";
+        public const string Pages_Matchs_Edit = "Pages.Matchs.Edit";
+        public const string Pages_Matchs_Delete = "Pages.Matchs.Delete";
+
+        public const string Pages_Managers = "Pages.Managers";
+        public const string Pages_Managers_Create = "Pages.Managers.Create";
+        public const string Pages_Managers_Edit = "Pages.Managers.Edit";
+        public const string Pages_Managers_Delete = "Pages.Managers.Delete";
+
+        public const string Pages_Players = "Pages.Players";
+        public const string Pages_Players_Create = "Pages.Players.Create";
+        public const string Pages_Players_Edit = "Pages.Players.Edit";
+        public const string Pages_Players_Delete = "Pages.Players.Delete";
+
         public const string Pages_HLVs = "Pages.HLVs";
         public const string Pages_HLVs_Create = "Pages.HLVs.Create";
         public const string Pages_HLVs_Edit = "Pages.HLVs.Edit";

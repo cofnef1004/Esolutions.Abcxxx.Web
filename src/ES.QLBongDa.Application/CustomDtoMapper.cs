@@ -1,10 +1,20 @@
-﻿
+﻿using ES.QLBongDa.Rankings.Dtos;
+using ES.QLBongDa.Rankings;
+
+using ES.QLBongDa.Tables;
+using ES.QLBongDa.Matchs.Dtos;
+using ES.QLBongDa.Matchs;
+
+using ES.QLBongDa.Managers.Dtos;
+using ES.QLBongDa.Managers;
+using ES.QLBongDa.Players.Dtos;
+using ES.QLBongDa.Players;
+using ES.QLBongDa.Clubs.Dtos;
+using ES.QLBongDa.Clubs;
 
 using ES.QLBongDa.Nations.Dtos;
 using ES.QLBongDa.Nations;
 
-using ES.QLBongDa.Clubs.Dtos;
-using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Vilages.Dtos;
 using ES.QLBongDa.Vilages;
 
@@ -61,11 +71,19 @@ namespace ES.QLBongDa
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            configuration.CreateMap<CreateOrEditRankingDto, Ranking>().ReverseMap();
+            configuration.CreateMap<RankingDto, Ranking>().ReverseMap();
+            configuration.CreateMap<CreateOrEditMatchDto, Match>().ReverseMap();
+            configuration.CreateMap<MatchDto, Match>().ReverseMap();
+            configuration.CreateMap<CreateOrEditManagerDto, Manager>().ReverseMap();
+            configuration.CreateMap<ManagerDto, Manager>().ReverseMap();
+            configuration.CreateMap<CreateOrEditPlayerDto, Player>().ReverseMap();
+            configuration.CreateMap<PlayerDto, Player>().ReverseMap();
+            configuration.CreateMap<CreateOrEditClubDto, Club>().ReverseMap();
+            configuration.CreateMap<ClubDto, Club>().ReverseMap();
 
             configuration.CreateMap<CreateOrEditNationDto, Nation>().ReverseMap();
             configuration.CreateMap<NationDto, Nation>().ReverseMap();
-            configuration.CreateMap<CreateOrEditClubDto, Club>().ReverseMap();
-            configuration.CreateMap<ClubDto, Club>().ReverseMap();
             configuration.CreateMap<CreateOrEditVilageDto, Vilage>().ReverseMap();
             configuration.CreateMap<VilageDto, Vilage>().ReverseMap();
             configuration.CreateMap<CreateOrEditStadiumDto, Stadium>().ReverseMap();
