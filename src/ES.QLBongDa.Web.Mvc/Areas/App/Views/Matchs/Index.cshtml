@@ -26,20 +26,46 @@
         <div class="card-body">
             <div class="form">
                 <div class="row align-items-center mb-4">
-                    <div class="col-xl-12">                        
+
+
+                            <div class="col-md-3">
+                                <div class="my-3">
+                                    <label class="form-label" for="MinNamFilterId">@*@L("MinMax")*@ @L("Nam")</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control m-input" @*placeholder="@L("MinValue")"*@ name="minNamFilter" id="MinNamFilterId" />
+                                        <input type="number" class="form-control m-input" @*placeholder="@L("MaxValue")"*@ name="maxNamFilter" id="MaxNamFilterId" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="my-3">
+                                    <label class="form-label" for="MinVongFilterId">@*@L("MinMax")*@ @L("Vong")</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control m-input" @*placeholder="@L("MinValue")"*@ name="minVongFilter" id="MinVongFilterId" />
+                                        <input type="number" class="form-control m-input" @*placeholder="@L("MaxValue")"*@ name="maxVongFilter" id="MaxVongFilterId" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="" class="col-md-3">
+                                <div class="my-3">
+                                   @* <input type="text" id="MatchsTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">*@
+                                    <button id="GetMatchsButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>
+                                </div>
+                            </div>
                         
                         
-                <div class="my-3">
+@*                <div class="my-3">
                     <div class="input-group">
                         <input type="text" id="MatchsTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">
                         <button id="GetMatchsButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>                        
                     </div>
-                </div>
+                </div>*@
+
             
-                    </div>
+
                 </div>
 			</div>
-                <div id="AdvacedAuditFiltersArea" style="display: none" class="row mb-4">
+               @* <div id="AdvacedAuditFiltersArea" style="display: none" class="row mb-4">
                     <div class="col-md-12">
 						
 					</div>
@@ -95,14 +121,13 @@
                         <span id="ShowAdvancedFiltersSpan" class="text-muted clickable-item"><i class="fa fa-angle-down"></i> @L("ShowAdvancedFilters")</span>
                         <span id="HideAdvancedFiltersSpan" class="text-muted clickable-item" style="display: none"><i class="fa fa-angle-up"></i> @L("HideAdvancedFilters")</span>
                     </div>
-                </div>
+                </div>*@
             <div class="row align-items-center">
                 <table id="MatchsTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
                     <thead>
                         <tr>
                             <th></th>
-                            
-                            <th>@L("Actions")</th>
+                                <th>@L("Actions")</th>
 								<th>@L("Nam")</th>
 								<th>@L("Vong")</th>
 								<th>@L("ClubTENCLB")</th>

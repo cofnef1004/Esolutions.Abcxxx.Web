@@ -79,13 +79,13 @@
                         cssClass: 'btn btn-brand dropdown-toggle',
                         text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
                         items: [
-						{
+						/*{
                                 text: app.localize('View'),
                                 iconStyle: 'far fa-eye mr-2',
                                 action: function (data) {
                                     window.location="/App/Matchs/ViewMatch/" + data.record.match.id;
                                 }
-                        },
+                        },*/
 						{
                             text: app.localize('Edit'),
                             iconStyle: 'far fa-edit mr-2',
