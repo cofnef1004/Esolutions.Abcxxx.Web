@@ -24,5 +24,6 @@ namespace ES.QLBongDa.Rankings
 
         Task<List<RankingClubLookupTableDto>> GetAllClubForTableDropdown();
 
+
     }
 }

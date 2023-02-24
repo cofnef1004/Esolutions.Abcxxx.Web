@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Threading.Tasks;
 using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,8 @@ using ES.QLBongDa.Authorization;
 using ES.QLBongDa.Matchs;
 using ES.QLBongDa.Matchs.Dtos;
 using Abp.Application.Services.Dto;
-using Abp.Extensions;
+using ES.QLBongDa.Rankings;
+using System.Linq;
 
 namespace ES.QLBongDa.Web.Areas.App.Controllers
 {
@@ -17,11 +18,12 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
     public class MatchsController : QLBongDaControllerBase
     {
         private readonly IMatchsAppService _matchsAppService;
+        private readonly IRankingsAppService _rankingsAppService;
 
-        public MatchsController(IMatchsAppService matchsAppService)
+        public MatchsController(IMatchsAppService matchsAppService, IRankingsAppService rankingsAppService)
         {
             _matchsAppService = matchsAppService;
-
+            _rankingsAppService = rankingsAppService;
         }
 
         public ActionResult Index()
@@ -85,5 +87,6 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             return View(model);
         }
 
+       
     }
 }

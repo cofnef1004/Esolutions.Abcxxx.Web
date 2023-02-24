@@ -1,4 +1,5 @@
-﻿using ES.QLBongDa.Managers.Dtos;
+﻿using System;
+using ES.QLBongDa.Managers.Dtos;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Managers
 {

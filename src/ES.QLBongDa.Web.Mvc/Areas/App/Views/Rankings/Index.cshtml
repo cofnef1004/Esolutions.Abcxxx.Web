@@ -13,9 +13,14 @@
 <div class="content d-flex flex-column flex-column-fluid">
 
                 <abp-page-subheader title='@L("Rankings")' description='@L("RankingsHeaderInfo")'>
-                   @*  <button id="ExportToExcelButton" class="btn btn-outline btn-outline-success btn-active-light-success me-1"><i class="fa fa-file-excel"></i> @L("ExportToExcel")</button>
+
+                    <button id="RefreshBXHButton" value="ViewResult" class="btn btn-primary">
+                                <i class="la la-refresh"></i> @L("TotalMatch")
+                            </button>
+
+      @*  <button id="RefreshBXHButton" asp-action="ViewResult" class="btn btn-primary blue" d><i class="fa fa-plus"></i> @L("TotalMatch")</button>*@
             
-                     @if (IsGranted(AppPermissions.Pages_Rankings_Create))
+                    @* @if (IsGranted(AppPermissions.Pages_Rankings_Create))
                      {
                          <a href="\App\Rankings\CreateOrEdit" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewRanking")</a>                
                      }*@

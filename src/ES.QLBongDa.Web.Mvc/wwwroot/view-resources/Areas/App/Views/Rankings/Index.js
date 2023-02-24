@@ -242,7 +242,14 @@
 		  }
 		});
 		*/
-		
+        function getRankings() {
+            dataTable.ajax.reload();
+        }
+        $('#RefreshBXHButton').click(function (e) {
+            e.preventDefault();
+            abp.notify.info(app.localize('Tổng Hợp Trận Đấu Thành Công'));
+            getRankings();
+        });
 		
     });
 })();

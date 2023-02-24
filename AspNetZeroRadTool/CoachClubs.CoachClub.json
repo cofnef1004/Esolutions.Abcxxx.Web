@@ -1,19 +1,19 @@
-﻿{
-  "IsRegenerate": true,
-  "MenuPosition": "main",
-  "RelativeNamespace": "Managers",
-  "EntityName": "Manager",
-  "EntityNamePlural": "Managers",
-  "TableName": "Managers",
+{
+  "IsRegenerate": false,
+  "MenuPosition": null,
+  "RelativeNamespace": "CoachClubs",
+  "EntityName": "CoachClub",
+  "EntityNamePlural": "CoachClubs",
+  "TableName": "CoachClubs",
   "PrimaryKeyType": "int",
   "BaseClass": "Entity",
   "EntityHistory": false,
   "AutoMigration": false,
   "UpdateDatabase": false,
-  "CreateUserInterface": true,
-  "CreateViewOnly": true,
-  "CreateExcelExport": true,
-  "IsNonModalCRUDPage": true,
+  "CreateUserInterface": false,
+  "CreateViewOnly": false,
+  "CreateExcelExport": false,
+  "IsNonModalCRUDPage": false,
   "IsMasterDetailPage": false,
   "PagePermission": {
     "Host": true,
@@ -30,7 +30,7 @@
         "MinimumValue": 0.0,
         "MaximumValue": 0.0
       },
-      "Required": true,
+      "Required": false,
       "Nullable": false,
       "Regex": "",
       "UserInterface": {
@@ -41,7 +41,7 @@
       "ViewType": null
     },
     {
-      "Name": "Tenhlv",
+      "Name": "MACLB",
       "Type": "string",
       "MaxLength": -1,
       "MinLength": -1,
@@ -61,8 +61,8 @@
       "ViewType": null
     },
     {
-      "Name": "Namsinh",
-      "Type": "int",
+      "Name": "Vaitro",
+      "Type": "string",
       "MaxLength": -1,
       "MinLength": -1,
       "Range": {
@@ -70,7 +70,7 @@
         "MinimumValue": 0.0,
         "MaximumValue": 0.0
       },
-      "Required": false,
+      "Required": true,
       "Nullable": false,
       "Regex": "",
       "UserInterface": {
@@ -81,30 +81,7 @@
       "ViewType": null
     }
   ],
-  "NavigationProperties": [{
-      "Namespace": "ES.QLBongDa.CoachClubs",
-      "ForeignEntityName": "CoachClub",
-      "IdType": "int",
-      "IsNullable": true,
-      "PropertyName": "Vaitro",
-      "DisplayPropertyName": "Vaitro",
-      "DuplicationNumber": 0,
-      "RelationType": "single",
-      "ViewType": "LookupTable",
-      "IsGeneratedByMasterPage": true
-   ",IsGeneratedByMasterPage": true",IsGeneratedByMasterPage": true },
-    {
-      "Namespace": "ES.QLBongDa.Nations",
-      "ForeignEntityName": "Nation",
-      "IdType": "int",
-      "IsNullable": true,
-      "PropertyName": "NationId",
-      "DisplayPropertyName": "tenqg",
-      "DuplicationNumber": 0,
-      "RelationType": "single",
-      "ViewType": "Dropdown"
-    }
-  ],
+  "NavigationProperties": [],
   "NavigationPropertyOneToManyTables": [],
   "EnumDefinitions": [],
   "DbContext": null

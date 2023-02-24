@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>
+  <texts>    <text name="CoachClubs">Coach clubs</text>
+    <text name="CoachClub">Coach club</text>
+    <text name="CreateNewCoachClub">Create new coach club</text>
+    <text name="EditCoachClub">Edit coach club</text>
+    <text name="DeleteCoachClub">Delete coach club</text>
+
+	  <text name="Congtac">Nơi Công Tác</text>
+
+	  <text name="Home">Đội Sân Nhà</text>
+	  <text name="Away">Đội Sân Khách</text>
+	  <text name="TotalMatch">Tổng Hợp Lịch Thi Đấu</text>
     <text name="Rankings">Bảng Xếp Hạng</text>
     <text name="Ranking">Bảng Xếp Hạng</text>
     <text name="ES.QLBongDa.Rankings.Ranking">Bảng Xếp Hạng</text>

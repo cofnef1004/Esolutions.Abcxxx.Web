@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿
 using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ES.QLBongDa.Web.Areas.App.Models.Rankings;
@@ -7,8 +6,10 @@ using ES.QLBongDa.Web.Controllers;
 using ES.QLBongDa.Authorization;
 using ES.QLBongDa.Rankings;
 using ES.QLBongDa.Rankings.Dtos;
+using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
-using Abp.Extensions;
+using ES.QLBongDa.Matchs;
+using System;
 
 namespace ES.QLBongDa.Web.Areas.App.Controllers
 {
@@ -17,10 +18,12 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
     public class RankingsController : QLBongDaControllerBase
     {
         private readonly IRankingsAppService _rankingsAppService;
+        private readonly IMatchsAppService _matchAppService;
 
-        public RankingsController(IRankingsAppService rankingsAppService)
+        public RankingsController(IRankingsAppService rankingsAppService, IMatchsAppService matchAppService)
         {
             _rankingsAppService = rankingsAppService;
+            _matchAppService = matchAppService;
 
         }
 
@@ -30,7 +33,6 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             {
                 FilterText = ""
             };
-
             return View(model);
         }
 
@@ -73,6 +75,42 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
 
             };
 
+            return View(model);
+        }
+
+        public async Task<ActionResult> ViewResult(int id)
+        {
+            var getrs = await _matchAppService.GetMatchForView(id);
+            var point = await _rankingsAppService.GetRankingForView(id);
+            int first = getrs.Match.Ketqua.IndexOf("-");
+            int home = Convert.ToInt32(getrs.Match.Ketqua.Substring(0, first));
+            int last = getrs.Match.Ketqua.LastIndexOf("-");
+            int away = Convert.ToInt32(getrs.Match.Ketqua.Substring(last + 1));
+            if (point.Ranking.vong < getrs.Match.Vong)
+            {
+                if (home > away)
+                {
+                    point.Ranking.diem += 3;
+                    point.Ranking.tran += 1;
+                    point.Ranking.thang += 1;
+                }
+                if (home == away)
+                {
+                    point.Ranking.diem += 1;
+                    point.Ranking.tran += 1;
+                    point.Ranking.hoa += 1;
+                }
+                if (home < away)
+                {
+                    point.Ranking.diem += 0;
+                    point.Ranking.tran += 1;
+                    point.Ranking.thua += 1;
+                }
+            }
+            var model = new RankingsViewModel
+            {
+                FilterText = ""
+            };
             return View(model);
         }
 

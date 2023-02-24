@@ -1,6 +1,4 @@
 ﻿using ES.QLBongDa.Clubs;
-
-using System;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using Abp.Linq.Extensions;
@@ -12,11 +10,11 @@ using ES.QLBongDa.Rankings.Dtos;
 using ES.QLBongDa.Dto;
 using Abp.Application.Services.Dto;
 using ES.QLBongDa.Authorization;
-using Abp.Extensions;
 using Abp.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Abp.UI;
-using ES.QLBongDa.Storage;
+using ES.QLBongDa.Matchs;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ES.QLBongDa.Rankings
 {
@@ -24,12 +22,17 @@ namespace ES.QLBongDa.Rankings
     public class RankingsAppService : QLBongDaAppServiceBase, IRankingsAppService
     {
         private readonly IRepository<Ranking> _rankingRepository;
+        private readonly IMatchsAppService _matchRepository;
+        private readonly IRepository<Club> _clubRepository;
         private readonly IRankingsExcelExporter _rankingsExcelExporter;
         private readonly IRepository<Club, int> _lookup_clubRepository;
 
-        public RankingsAppService(IRepository<Ranking> rankingRepository, IRankingsExcelExporter rankingsExcelExporter, IRepository<Club, int> lookup_clubRepository)
+
+        public RankingsAppService(IRepository<Ranking> rankingRepository, IRepository<Club> clubRepository, IMatchsAppService matchRepository, IRankingsExcelExporter rankingsExcelExporter, IRepository<Club, int> lookup_clubRepository)
         {
             _rankingRepository = rankingRepository;
+            _matchRepository = matchRepository;
+            _clubRepository = clubRepository;
             _rankingsExcelExporter = rankingsExcelExporter;
             _lookup_clubRepository = lookup_clubRepository;
 
@@ -242,6 +245,40 @@ namespace ES.QLBongDa.Rankings
                     Id = club.Id,
                     DisplayName = club == null || club.TENCLB == null ? "" : club.TENCLB.ToString()
                 }).ToListAsync();
+        }
+
+        public async Task<GetRankingForViewDto> ViewResult(int id)
+        {
+            var ranking = await _rankingRepository.GetAsync(id);
+            var output = new GetRankingForViewDto { Ranking = ObjectMapper.Map<RankingDto>(ranking) };
+            var getrs = await _matchRepository.GetMatchForView(id);
+            var point = await GetRankingForView(id);
+            int first = getrs.Match.Ketqua.IndexOf("-");
+            int home = Convert.ToInt32(getrs.Match.Ketqua.Substring(0, first));
+            int last = getrs.Match.Ketqua.LastIndexOf("-");
+            int away = Convert.ToInt32(getrs.Match.Ketqua.Substring(last + 1));
+            if (point.Ranking.vong < getrs.Match.Vong)
+            {
+                if (home > away)
+                {
+                    point.Ranking.diem += 3;
+                    point.Ranking.tran += 1;
+                    point.Ranking.thang += 1;
+                }
+                if (home == away)
+                {
+                    point.Ranking.diem += 1;
+                    point.Ranking.tran += 1;
+                    point.Ranking.hoa += 1;
+                }
+                if (home < away)
+                {
+                    point.Ranking.diem += 0;
+                    point.Ranking.tran += 1;
+                    point.Ranking.thua += 1;
+                }
+            }
+            return (output);
         }
 
     }

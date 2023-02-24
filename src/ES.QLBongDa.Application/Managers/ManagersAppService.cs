@@ -12,11 +12,10 @@ using ES.QLBongDa.Managers.Dtos;
 using ES.QLBongDa.Dto;
 using Abp.Application.Services.Dto;
 using ES.QLBongDa.Authorization;
-using Abp.Extensions;
 using Abp.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Abp.UI;
-using ES.QLBongDa.Storage;
+using ES.QLBongDa.CoachClubs;
+using ES.QLBongDa.CoachClubs.Dtos;
 
 namespace ES.QLBongDa.Managers
 {
@@ -24,15 +23,16 @@ namespace ES.QLBongDa.Managers
     public class ManagersAppService : QLBongDaAppServiceBase, IManagersAppService
     {
         private readonly IRepository<Manager> _managerRepository;
+        private readonly IRepository<CoachClub> _coachclubRepository;
         private readonly IManagersExcelExporter _managersExcelExporter;
         private readonly IRepository<Nation, int> _lookup_nationRepository;
 
-        public ManagersAppService(IRepository<Manager> managerRepository, IManagersExcelExporter managersExcelExporter, IRepository<Nation, int> lookup_nationRepository)
+        public ManagersAppService(IRepository<Manager> managerRepository, IRepository<CoachClub> coachclubRepository, IManagersExcelExporter managersExcelExporter, IRepository<Nation, int> lookup_nationRepository)
         {
             _managerRepository = managerRepository;
             _managersExcelExporter = managersExcelExporter;
             _lookup_nationRepository = lookup_nationRepository;
-
+            _coachclubRepository = coachclubRepository;
         }
 
         public async Task<PagedResultDto<GetManagerForViewDto>> GetAll(GetAllManagersInput input)
@@ -81,8 +81,10 @@ namespace ES.QLBongDa.Managers
                         Tenhlv = o.Tenhlv,
                         Namsinh = o.Namsinh,
                         Id = o.Id,
+                        
                     },
                     Nationtenqg = o.Nationtenqg
+                    
                 };
 
                 results.Add(res);
@@ -92,14 +94,18 @@ namespace ES.QLBongDa.Managers
                 totalCount,
                 results
             );
-
         }
 
         public async Task<GetManagerForViewDto> GetManagerForView(int id)
         {
             var manager = await _managerRepository.GetAsync(id);
+            var club = await _coachclubRepository.GetAsync(id);
 
-            var output = new GetManagerForViewDto { Manager = ObjectMapper.Map<ManagerDto>(manager) };
+            var output = new GetManagerForViewDto 
+            { 
+                Manager = ObjectMapper.Map<ManagerDto>(manager),
+                ClubForViewDto = ObjectMapper.Map<GetCoachClubForViewDto>(club),
+            };
 
             if (output.Manager.NationId != null)
             {
@@ -115,7 +121,10 @@ namespace ES.QLBongDa.Managers
         {
             var manager = await _managerRepository.FirstOrDefaultAsync(input.Id);
 
-            var output = new GetManagerForEditOutput { Manager = ObjectMapper.Map<CreateOrEditManagerDto>(manager) };
+            var output = new GetManagerForEditOutput 
+            {
+                Manager = ObjectMapper.Map<CreateOrEditManagerDto>(manager) 
+            };
 
             if (output.Manager.NationId != null)
             {

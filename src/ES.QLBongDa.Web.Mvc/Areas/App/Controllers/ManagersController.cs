@@ -8,7 +8,7 @@ using ES.QLBongDa.Authorization;
 using ES.QLBongDa.Managers;
 using ES.QLBongDa.Managers.Dtos;
 using Abp.Application.Services.Dto;
-using Abp.Extensions;
+
 
 namespace ES.QLBongDa.Web.Areas.App.Controllers
 {
@@ -65,16 +65,17 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         {
             var getManagerForViewDto = await _managersAppService.GetManagerForView(id);
 
+
             var model = new ManagerViewModel()
             {
                 Manager = getManagerForViewDto.Manager
                 ,
                 Nationtenqg = getManagerForViewDto.Nationtenqg
-
+                ,
+                ClubForViewDto = getManagerForViewDto.ClubForViewDto
             };
 
             return View(model);
         }
-
     }
 }

@@ -5,8 +5,7 @@ using Abp.Application.Services.Dto;
 using ES.QLBongDa.Matchs.Dtos;
 using ES.QLBongDa.Dto;
 using System.Collections.Generic;
-using System.Collections.Generic;
-using System.Collections.Generic;
+
 
 namespace ES.QLBongDa.Matchs
 {
@@ -27,6 +26,7 @@ namespace ES.QLBongDa.Matchs
         Task<List<MatchClubLookupTableDto>> GetAllClubForTableDropdown();
 
         Task<List<MatchStadiumLookupTableDto>> GetAllStadiumForTableDropdown();
+     
 
     }
 }
