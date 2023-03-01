@@ -98,7 +98,6 @@ namespace ES.QLBongDa.Clubs
                 totalCount,
                 results
             );
-
         }
 
         public async Task<GetClubForViewDto> GetClubForView(int id)

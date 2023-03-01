@@ -72,13 +72,12 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Ranking = getRankingForViewDto.Ranking
                 ,
                 ClubTENCLB = getRankingForViewDto.ClubTENCLB
-
             };
 
             return View(model);
         }
 
-        public async Task<ActionResult> ViewResult(int id)
+      /*  public async Task<ActionResult> ViewResult(int id)
         {
             var getrs = await _matchAppService.GetMatchForView(id);
             var point = await _rankingsAppService.GetRankingForView(id);
@@ -112,7 +111,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 FilterText = ""
             };
             return View(model);
-        }
+        }*/
 
     }
 }

@@ -71,8 +71,6 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Manager = getManagerForViewDto.Manager
                 ,
                 Nationtenqg = getManagerForViewDto.Nationtenqg
-                ,
-                ClubForViewDto = getManagerForViewDto.ClubForViewDto
             };
 
             return View(model);

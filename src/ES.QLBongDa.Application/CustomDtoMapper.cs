@@ -1,5 +1,4 @@
-﻿using ES.QLBongDa.CoachClubs.Dtos;
-using ES.QLBongDa.CoachClubs;
+﻿
 
 using ES.QLBongDa.Clubs.Dtos;
 using ES.QLBongDa.Clubs;
@@ -74,9 +73,6 @@ namespace ES.QLBongDa
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<GetCoachClubForViewDto, Manager>().ReverseMap();
-            configuration.CreateMap<CreateOrEditCoachClubDto, CoachClub>().ReverseMap();
-            configuration.CreateMap<CoachClubDto, CoachClub>().ReverseMap();
             configuration.CreateMap<CreateOrEditClubDto, Club>().ReverseMap();
             configuration.CreateMap<ClubDto, Club>().ReverseMap();
             configuration.CreateMap<CreateOrEditManagerDto, Manager>().ReverseMap();

@@ -45,9 +45,9 @@
             var ranking = _$rankingInformationForm.serializeFormToObject();
 			
 			 abp.ui.setBusy();
-			 _rankingsService.createOrEdit(
-				ranking
-			 ).done(function () {
+            _rankingsService.createOrEdit({
+                ranking
+            }).done(function () {
                abp.notify.info(app.localize('SavedSuccessfully'));
                abp.event.trigger('app.createOrEditRankingModalSaved');
                

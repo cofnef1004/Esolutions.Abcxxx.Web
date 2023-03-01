@@ -1,4 +1,6 @@
-﻿namespace ES.QLBongDa.Clubs.Dtos
+﻿
+
+namespace ES.QLBongDa.Clubs.Dtos
 {
     public class GetClubForViewDto
     {
@@ -7,6 +9,7 @@
         public string StadiumTensan { get; set; }
 
         public string Vilagetentinh { get; set; }
+
 
     }
 }

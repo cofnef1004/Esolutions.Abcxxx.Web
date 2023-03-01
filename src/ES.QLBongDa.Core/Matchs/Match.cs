@@ -17,7 +17,6 @@ namespace ES.QLBongDa.Matchs
 
         public virtual int Vong { get; set; }
 
-        [Required]
         public virtual string Ketqua { get; set; }
 
         public virtual int? Maclb1 { get; set; }

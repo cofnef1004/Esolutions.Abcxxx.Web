@@ -1,4 +1,4 @@
-﻿using ES.QLBongDa.CoachClubs;
+﻿
 using ES.QLBongDa.Clubs;
 
 using ES.QLBongDa.Managers;
@@ -28,8 +28,6 @@ namespace ES.QLBongDa.EntityFrameworkCore
 {
     public class QLBongDaDbContext : AbpZeroDbContext<Tenant, Role, User, QLBongDaDbContext>, IAbpPersistedGrantDbContext
     {
-        public virtual DbSet<CoachClub> CoachClubs { get; set; }
-
         public virtual DbSet<Club> Clubs { get; set; }
 
         public virtual DbSet<Manager> Managers { get; set; }

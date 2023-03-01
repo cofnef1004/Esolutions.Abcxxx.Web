@@ -6,10 +6,6 @@
     /// </summary>
     public static class AppPermissions
     {
-        public const string Pages_CoachClubs = "Pages.CoachClubs";
-        public const string Pages_CoachClubs_Create = "Pages.CoachClubs.Create";
-        public const string Pages_CoachClubs_Edit = "Pages.CoachClubs.Edit";
-        public const string Pages_CoachClubs_Delete = "Pages.CoachClubs.Delete";
 
         public const string Pages_Rankings = "Pages.Rankings";
         public const string Pages_Rankings_Create = "Pages.Rankings.Create";

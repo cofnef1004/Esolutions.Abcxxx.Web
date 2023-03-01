@@ -26,114 +26,71 @@
         <div class="card-body">
             <div class="form">
                 <div class="row align-items-center mb-4">
-
-
-                            <div class="col-md-3">
+                            @*<div class="col-md-3">
                                 <div class="my-3">
-                                    <label class="form-label" for="MinNamFilterId">@*@L("MinMax")*@ @L("Nam")</label>
+                                    <label class="form-label" for="MinVongFilterId">@L("Vong")</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control m-input" @*placeholder="@L("MinValue")"*@ name="minNamFilter" id="MinNamFilterId" />
-                                        <input type="number" class="form-control m-input" @*placeholder="@L("MaxValue")"*@ name="maxNamFilter" id="MaxNamFilterId" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="my-3">
-                                    <label class="form-label" for="MinVongFilterId">@*@L("MinMax")*@ @L("Vong")</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control m-input" @*placeholder="@L("MinValue")"*@ name="minVongFilter" id="MinVongFilterId" />
-                                        <input type="number" class="form-control m-input" @*placeholder="@L("MaxValue")"*@ name="maxVongFilter" id="MaxVongFilterId" />
+                                        <input type="number" class="form-control m-input" name="minVongFilter" id="MinVongFilterId" />
+                                        <input type="number" class="form-control m-input" name="maxVongFilter" id="MaxVongFilterId" />
                                     </div>
                                 </div>
                             </div>
                             <div style="" class="col-md-3">
                                 <div class="my-3">
-                                   @* <input type="text" id="MatchsTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">*@
+                                   
                                     <button id="GetMatchsButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>
                                 </div>
+                            </div>*@
+                        <div hidden class="col-md-3">
+                            <div class="my-3">
+                                <label class="form-label" for="KetquaFilterId">(@L("Stadium")) @L("Tensan")</label>
+                                <input type="text" class="form-control" name="KetquaFilterId2" id="KetquaFilterId2" value="-">
                             </div>
+                        </div>
+                         <div hidden class="col-md-3">
+                            <div class="my-3">
+                                <label class="form-label" for="KetquaFilterId">(@L("Stadium")) @L("Tensan")</label>
+                                <input type="text" class="form-control" name="maxVongFilterId" id="MaxVongFilterId" value="1">
+                            </div>
+                        </div>
+                        <div hidden class="my-3">
+                            <label class="form-label" for="MinVongFilterId">@L("Vong")</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control m-input" name="minVongFilter" id="MinVongFilterId" />
+                                <input type="number" class="form-control m-input" name="maxVongFilter" id="MaxVongFilterId" />
+                            </div>
+                        </div>
                         
-                        
-@*                <div class="my-3">
-                    <div class="input-group">
-                        <input type="text" id="MatchsTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">
-                        <button id="GetMatchsButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>                        
-                    </div>
-                </div>*@
-
-            
-
                 </div>
 			</div>
-               @* <div id="AdvacedAuditFiltersArea" style="display: none" class="row mb-4">
-                    <div class="col-md-12">
-						
-					</div>
 
-
-                            <div class="col-md-3">
-                                 <div class="my-3">
-									<label class="form-label" for="MinNamFilterId">@L("MinMax") @L("Nam")</label>
-									<div class="input-group">
-										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minNamFilter" id="MinNamFilterId"/>
-                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxNamFilter"  id="MaxNamFilterId"/>
-									</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                 <div class="my-3">
-									<label class="form-label" for="MinVongFilterId">@L("MinMax") @L("Vong")</label>
-									<div class="input-group">
-										<input type="number" class="form-control m-input" placeholder="@L("MinValue")" name="minVongFilter" id="MinVongFilterId"/>
-                                        <input type="number" class="form-control m-input" placeholder="@L("MaxValue")" name="maxVongFilter"  id="MaxVongFilterId"/>
-									</div>
-                                </div>
-                            </div>
-							<div class="col-md-3">
-								<div class="my-3">
-									<label class="form-label" for="KetquaFilterId">@L("Ketqua")</label>
-									<input type="text" class="form-control" name="ketquaFilter" id="KetquaFilterId">
-								</div>
-                            </div>
-
-
-							<div class="col-md-3">
-								<div class="my-3">
-									<label class="form-label" for="ClubTENCLBFilterId">(@L("Club")) @L("TENCLB")</label>
-									<input type="text" class="form-control" name="clubTENCLBFilter" id="ClubTENCLBFilterId">
-								</div>
-                            </div>
-							<div class="col-md-3">
-								<div class="my-3">
-									<label class="form-label" for="ClubTENCLB2FilterId">(@L("Club")) @L("TENCLB")</label>
-									<input type="text" class="form-control" name="clubTENCLB2Filter" id="ClubTENCLB2FilterId">
-								</div>
-                            </div>
-							<div class="col-md-3">
-								<div class="my-3">
-									<label class="form-label" for="StadiumTensanFilterId">(@L("Stadium")) @L("Tensan")</label>
-									<input type="text" class="form-control" name="stadiumTensanFilter" id="StadiumTensanFilterId">
-								</div>
-                            </div>
-                </div>
-                <div class="row my-4">
-                    <div class="col-xl-12">
-                        <span id="ShowAdvancedFiltersSpan" class="text-muted clickable-item"><i class="fa fa-angle-down"></i> @L("ShowAdvancedFilters")</span>
-                        <span id="HideAdvancedFiltersSpan" class="text-muted clickable-item" style="display: none"><i class="fa fa-angle-up"></i> @L("HideAdvancedFilters")</span>
-                    </div>
-                </div>*@
             <div class="row align-items-center">
                 <table id="MatchsTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                    <h1>Kết Quả</h1>
                     <thead>
                         <tr>
-                            <th></th>
+                                <th></th>
                                 <th>@L("Actions")</th>
 								<th>@L("Nam")</th>
 								<th>@L("Vong")</th>
 								<th>@L("Home")</th>
                                 <th>@L("Ketqua")</th>
 								<th>@L("Away")</th>
-							@*	<th>@L("StadiumTensan")</th> *@
+                        </tr>
+                    </thead>
+                </table>
+
+                <table id="MatchsTable2" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                    <h1>Lịch Thi Đấu</h1>
+                    <thead>
+                        <tr>
+                                <th></th>
+                                <th>@L("Actions")</th>
+								<th>@L("Nam")</th>
+								<th>@L("Vong")</th>
+								<th>@L("Home")</th>
+                                <th>@L("Ketqua")</th>
+								<th>@L("Away")</th>
                         </tr>
                     </thead>
                 </table>

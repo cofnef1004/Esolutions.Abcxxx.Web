@@ -1,12 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="CoachClubs">Coach clubs</text>
-    <text name="CoachClub">Coach club</text>
-    <text name="CreateNewCoachClub">Create new coach club</text>
-    <text name="EditCoachClub">Edit coach club</text>
-    <text name="DeleteCoachClub">Delete coach club</text>
+  <texts>
+	  <text name="ProfileFootball">Thống Kê Giải Đấu</text>
 
-	  <text name="Congtac">Nơi Công Tác</text>
+	  <text name="Danhsachhl">Danh Sách Huấn Luyện Viên</text>
 
 	  <text name="Home">Đội Sân Nhà</text>
 	  <text name="Away">Đội Sân Khách</text>
@@ -20,13 +17,13 @@
     <text name="EditRanking">Edit ranking</text>
     <text name="DeleteRanking">Delete ranking</text>
 
-    <text name="Matchs">Trận Đấu</text>
-    <text name="Match">Trận Đấu</text>
-    <text name="ES.QLBongDa.Matchs.Match">Trận Đấu</text>
+    <text name="Matchs">Kết Quả/Lịch Thi Đấu</text>
+    <text name="Match">Kết Quả/Lịch Thi Đấu</text>
+    <text name="ES.QLBongDa.Matchs.Match">Kết Quả/Lịch Thi Đấu</text>
     <text name="Nam">Năm</text>
     <text name="Vong">Vòng</text>
     <text name="Ketqua">Kết Quả</text>
-    <text name="MatchsHeaderInfo">Thông Tin Trận Đấu</text>
+    <text name="MatchsHeaderInfo">Thông Tin Kết Quả/Lịch Thi Đấu</text>
     <text name="CreateNewMatch">Thêm Trận Đấu</text>
     <text name="EditMatch">Chỉnh Sửa Kết Quả Trận Đấu</text>
     <text name="DeleteMatch">Xóa Trận Đấu</text>

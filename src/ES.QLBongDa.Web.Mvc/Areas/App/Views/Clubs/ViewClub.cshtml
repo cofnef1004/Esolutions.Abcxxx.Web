@@ -8,6 +8,7 @@
 @section Scripts
 {
     <script abp-src="/view-resources/Areas/App/Views/Clubs/CreateOrEdit.js" asp-append-version="true"></script>
+    <script abp-src="/view-resources/Areas/App/Views/Clubs/Index.js" asp-append-version="true"></script>
 }
 
 <div class="content d-flex flex-column flex-column-fluid">
@@ -37,13 +38,33 @@
                 @Model.Club.TENCLB
             </div>
 
-                                    <div class="col-6 mb-3">
-                <h6>(@L("Stadium")) @L("Tensan") :</h6>
+            <div class="col-6 mb-3">
+                <h6>@L("Stadium") :</h6>
                 @Model.StadiumTensan
             </div>
             <div class="col-6 mb-3">
-                <h6>(@L("Vilage")) @L("tentinh") :</h6>
+                <h6>@L("Vilage") :</h6>
                 @Model.Vilagetentinh
+            </div>
+            <div class="col-6 mb-3">
+                <h6> @L("Danhsachhl") :</h6>
+
+            </div>
+             <div class="row align-items-center">
+                <table id="ManagersTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            
+                            
+								<th>@L("Mahlv")</th>
+								<th>@L("Tenhlv")</th>
+								<th>@L("Namsinh")</th>
+								<th>@L("Nationtenqg")</th>   
+                                <th></th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
 
                     </div>

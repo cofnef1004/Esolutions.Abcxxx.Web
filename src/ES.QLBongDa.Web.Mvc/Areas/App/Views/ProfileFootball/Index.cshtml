@@ -1,0 +1,57 @@
+﻿@model ProfileFootballViewModel
+<div class="content d-flex flex-column flex-column-fluid">
+
+    <abp-page-subheader title='@L("ProfileFootball")'>
+
+
+        @*  <button id="RefreshBXHButton" asp-action="ViewResult" class="btn btn-primary blue" d><i class="fa fa-plus"></i> @L("TotalMatch")</button>*@
+
+        @* @if (IsGranted(AppPermissions.Pages_Rankings_Create))
+        {
+        <a href="\App\Rankings\CreateOrEdit" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewRanking")</a>
+        }*@
+    </abp-page-subheader>
+
+    <div class="@(await GetContainerClass())">
+        <div class="card card-custom gutter-b">
+            <div class="card-body">
+                <div class="form">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-xl-12">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    Tổng Số Trận Đã Đấu : @Model.TotalMatch <br />
+                    <br />
+                    Số Trận Thắng : @Model.MatchDone<br />
+                    <br />
+                    Số Trận Đã Thi Đấu : @Model.MatchDone<br />
+                    <br />
+                    Số Trận Tiếp Theo : @Model.MatchAhead<br />
+                    <br />
+                    Đội Ghi Bàn Tốt Nhất : @Model.MostGoalsClub<br />
+                    <br />
+                    Đội Ghi Bàn Ít Nhất : @Model.LeastGoalsClub<br />
+                    <br />
+                    Đội Thủng Lưới Ít Nhất : @Model.BestSave<br />
+                    <br />
+                    Đội Thủng Lưới Nhiều Nhất Nhất : @Model.LeastSave<br />
+                    <br />
+                    @* <table id="RankingsTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                        <thead>
+                        <tr>
+                            <td>Tổng Số Trận Đã Đấu : @Model.TotalMatch</td>
+                            <td>Số Trận Thắng : @Model.Win</td>
+                            <td>Số Trận Hòa : @Model.Draw</td>
+                            <td>Số Trận Thua : @Model.Lose</td>                
+                        </tr> 
+                        </thead>
+                    </table>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

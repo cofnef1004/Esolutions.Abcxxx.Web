@@ -30,11 +30,6 @@ namespace ES.QLBongDa.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
 
-            var coachClubs = pages.CreateChildPermission(AppPermissions.Pages_CoachClubs, L("CoachClubs"), multiTenancySides: MultiTenancySides.Host);
-            coachClubs.CreateChildPermission(AppPermissions.Pages_CoachClubs_Create, L("CreateNewCoachClub"), multiTenancySides: MultiTenancySides.Host);
-            coachClubs.CreateChildPermission(AppPermissions.Pages_CoachClubs_Edit, L("EditCoachClub"), multiTenancySides: MultiTenancySides.Host);
-            coachClubs.CreateChildPermission(AppPermissions.Pages_CoachClubs_Delete, L("DeleteCoachClub"), multiTenancySides: MultiTenancySides.Host);
-
             var rankings = pages.CreateChildPermission(AppPermissions.Pages_Rankings, L("Rankings"), multiTenancySides: MultiTenancySides.Host);
             rankings.CreateChildPermission(AppPermissions.Pages_Rankings_Create, L("CreateNewRanking"), multiTenancySides: MultiTenancySides.Host);
             rankings.CreateChildPermission(AppPermissions.Pages_Rankings_Edit, L("EditRanking"), multiTenancySides: MultiTenancySides.Host);

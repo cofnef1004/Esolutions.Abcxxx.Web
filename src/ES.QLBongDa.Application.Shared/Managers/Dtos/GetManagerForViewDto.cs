@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ES.QLBongDa.CoachClubs.Dtos;
+﻿
 
 namespace ES.QLBongDa.Managers.Dtos
 {
@@ -9,6 +8,5 @@ namespace ES.QLBongDa.Managers.Dtos
 
         public string Nationtenqg { get; set; }
 
-        public GetCoachClubForViewDto ClubForViewDto { get; set; }
     }
 }
