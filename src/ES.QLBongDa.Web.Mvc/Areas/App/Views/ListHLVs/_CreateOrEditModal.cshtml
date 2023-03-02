@@ -1,0 +1,42 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.ListHLVs
+@model CreateOrEditListHLVModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditListHLV")) : L("CreateNewListHLV")))
+
+<div class="modal-body">
+        <div id="ListHLVInformationsTab">
+            <form name="ListHLVInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.ListHLV.Id" />
+                }
+
+				
+                
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="ListHLV_Mahlv">@L("Mahlv")</label>
+									<input class="form-control" id="ListHLV_Mahlv" value="@Model.ListHLV.Mahlv" type="text" name="mahlv"     />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="ListHLV_MACLB">@L("MACLB")</label>
+									<input class="form-control" id="ListHLV_MACLB" value="@Model.ListHLV.MACLB" type="text" name="maclb"  required    />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="ListHLV_VAITRO">@L("VAITRO")</label>
+									<input class="form-control" id="ListHLV_VAITRO" value="@Model.ListHLV.VAITRO" type="text" name="vaitro"  required    />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

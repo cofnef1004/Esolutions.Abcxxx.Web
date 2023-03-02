@@ -18,23 +18,31 @@ using Abp.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Abp.UI;
 using ES.QLBongDa.Storage;
+using ES.QLBongDa.ListHLVs;
+using ES.QLBongDa.ListHLVs.Dtos;
+using ES.QLBongDa.Managers;
+using ES.QLBongDa.Managers.Dtos;
 
 namespace ES.QLBongDa.Clubs
 {
     [AbpAuthorize(AppPermissions.Pages_Clubs)]
     public class ClubsAppService : QLBongDaAppServiceBase, IClubsAppService
     {
+        private readonly IRepository<ListHLV> _listHLVRepository;
         private readonly IRepository<Club> _clubRepository;
+        private readonly IRepository<Manager> _managerRepository;
         private readonly IClubsExcelExporter _clubsExcelExporter;
         private readonly IRepository<Stadium, int> _lookup_stadiumRepository;
         private readonly IRepository<Vilage, int> _lookup_vilageRepository;
 
-        public ClubsAppService(IRepository<Club> clubRepository, IClubsExcelExporter clubsExcelExporter, IRepository<Stadium, int> lookup_stadiumRepository, IRepository<Vilage, int> lookup_vilageRepository)
+        public ClubsAppService(IRepository<Club> clubRepository, IRepository<Manager> managerRepository, IRepository<ListHLV> listHLVRepository, IClubsExcelExporter clubsExcelExporter, IRepository<Stadium, int> lookup_stadiumRepository, IRepository<Vilage, int> lookup_vilageRepository)
         {
             _clubRepository = clubRepository;
             _clubsExcelExporter = clubsExcelExporter;
             _lookup_stadiumRepository = lookup_stadiumRepository;
             _lookup_vilageRepository = lookup_vilageRepository;
+            _listHLVRepository = listHLVRepository;
+            _managerRepository = managerRepository;
 
         }
 
@@ -102,9 +110,15 @@ namespace ES.QLBongDa.Clubs
 
         public async Task<GetClubForViewDto> GetClubForView(int id)
         {
-            var club = await _clubRepository.GetAsync(id);
-
-            var output = new GetClubForViewDto { Club = ObjectMapper.Map<ClubDto>(club) };
+            var club = await _clubRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
+            var list = await _listHLVRepository.GetAll().FirstOrDefaultAsync(x => x.MACLB == club.MACLB);
+            var manager = await _managerRepository.GetAll().FirstOrDefaultAsync(x => x.Mahlv == list.Mahlv);
+            var output = new GetClubForViewDto()
+            {
+               Club = ObjectMapper.Map<ClubDto>(club),
+               List = ObjectMapper.Map<ListHLVDto>(list),
+               coach = ObjectMapper.Map<ManagerDto>(manager)
+            };
 
             if (output.Club.StadiumId != null)
             {

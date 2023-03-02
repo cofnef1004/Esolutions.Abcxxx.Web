@@ -21,6 +21,7 @@
 
         public static class Host
         {
+            public const string ListHLVs = "ListHLVs.ListHLVs";
             public const string ProfileFootball = "ProfileFootball.ProfileFootball";
             public const string Clubs = "Clubs.Clubs";
             public const string Managers = "Managers.Managers";

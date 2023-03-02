@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>
+  <texts>    <text name="ListHLVs">List h l vs</text>
+    <text name="ListHLV">List h l v</text>
+    <text name="ES.QLBongDa.ListHLVs.ListHLV">ListHLV</text>
+    <text name="VAITRO">V a i t r o</text>
+    <text name="ListHLVsHeaderInfo">List h l vs header info</text>
+    <text name="CreateNewListHLV">Create new list h l v</text>
+    <text name="EditListHLV">Edit list h l v</text>
+    <text name="DeleteListHLV">Delete list h l v</text>
+
 	  <text name="ProfileFootball">Thống Kê Giải Đấu</text>
 
 	  <text name="Danhsachhl">Danh Sách Huấn Luyện Viên</text>

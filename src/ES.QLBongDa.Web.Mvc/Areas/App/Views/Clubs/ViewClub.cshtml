@@ -46,24 +46,19 @@
                 <h6>@L("Vilage") :</h6>
                 @Model.Vilagetentinh
             </div>
-            <div class="col-6 mb-3">
-                <h6> @L("Danhsachhl") :</h6>
-
-            </div>
+            <h4> @L("Danhsachhl") :</h4>
              <div class="row align-items-center">
-                <table id="ManagersTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            
-                            
-								<th>@L("Mahlv")</th>
-								<th>@L("Tenhlv")</th>
-								<th>@L("Namsinh")</th>
-								<th>@L("Nationtenqg")</th>   
-                                <th></th>
-                        </tr>
-                    </thead>
+                <table  class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                                <tr>
+                                    <td><h4>Mã HLV</h4></td>
+                                    <td><h4>Tên HLV</h4></td>
+                                    <td><h4>Vai Trò</h4></td>
+                                </tr>
+                   <tr>
+                       <td>@Model.List.Mahlv</td>
+                       <td>@Model.coach.Tenhlv</td>
+                       <td>@Model.List.VAITRO</td>
+                   </tr>
                 </table>
             </div>
 

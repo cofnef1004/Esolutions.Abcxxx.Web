@@ -9,6 +9,7 @@ using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Clubs.Dtos;
 using Abp.Application.Services.Dto;
 using Abp.Extensions;
+using System.Linq;
 
 namespace ES.QLBongDa.Web.Areas.App.Controllers
 {
@@ -75,6 +76,10 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
 
                 ,
                 Vilagetentinh = getClubForViewDto.Vilagetentinh
+                ,
+                List = getClubForViewDto.List
+                ,
+                coach = getClubForViewDto.coach
 
             };
 

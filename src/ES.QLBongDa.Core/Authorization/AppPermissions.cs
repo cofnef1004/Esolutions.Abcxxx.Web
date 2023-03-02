@@ -6,6 +6,10 @@
     /// </summary>
     public static class AppPermissions
     {
+        public const string Pages_ListHLVs = "Pages.ListHLVs";
+        public const string Pages_ListHLVs_Create = "Pages.ListHLVs.Create";
+        public const string Pages_ListHLVs_Edit = "Pages.ListHLVs.Edit";
+        public const string Pages_ListHLVs_Delete = "Pages.ListHLVs.Delete";
 
         public const string Pages_Rankings = "Pages.Rankings";
         public const string Pages_Rankings_Create = "Pages.Rankings.Create";

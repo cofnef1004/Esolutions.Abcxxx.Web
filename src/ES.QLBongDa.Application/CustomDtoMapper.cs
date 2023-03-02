@@ -1,4 +1,5 @@
-﻿
+﻿using ES.QLBongDa.ListHLVs.Dtos;
+using ES.QLBongDa.ListHLVs;
 
 using ES.QLBongDa.Clubs.Dtos;
 using ES.QLBongDa.Clubs;
@@ -73,6 +74,14 @@ namespace ES.QLBongDa
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            configuration.CreateMap<ListHLVDto, Manager>().ReverseMap();
+            configuration.CreateMap<ListHLVDto, ManagerDto>().ReverseMap();
+            configuration.CreateMap<ListHLVDto, Club>().ReverseMap();
+            configuration.CreateMap<GetListHLVForViewDto, Club>().ReverseMap();
+            configuration.CreateMap<GetListHLVForViewDto, ListHLV>().ReverseMap();
+            configuration.CreateMap<GetListHLVForViewDto, ClubDto>().ReverseMap();
+            configuration.CreateMap<CreateOrEditListHLVDto, ListHLV>().ReverseMap();
+            configuration.CreateMap<ListHLVDto, ListHLV>().ReverseMap();
             configuration.CreateMap<CreateOrEditClubDto, Club>().ReverseMap();
             configuration.CreateMap<ClubDto, Club>().ReverseMap();
             configuration.CreateMap<CreateOrEditManagerDto, Manager>().ReverseMap();

@@ -1,4 +1,5 @@
-﻿
+﻿using ES.QLBongDa.ListHLVs;
+
 using ES.QLBongDa.Clubs;
 
 using ES.QLBongDa.Managers;
@@ -28,6 +29,8 @@ namespace ES.QLBongDa.EntityFrameworkCore
 {
     public class QLBongDaDbContext : AbpZeroDbContext<Tenant, Role, User, QLBongDaDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<ListHLV> ListHLVs { get; set; }
+
         public virtual DbSet<Club> Clubs { get; set; }
 
         public virtual DbSet<Manager> Managers { get; set; }
