@@ -39,24 +39,24 @@
 
 				            
                                         
-						<div class="my-3">
+						<div class="my-3 col-3">
 							<label class="form-label" for="nationId">@L("Nation")</label>
 							@Html.DropDownList("nationId", new SelectList(Model.ManagerNationList,"Id","DisplayName", (Model.IsEditMode ? Model.Manager.NationId.ToString() : "")),@L("SelectANation"), new { @class = "form-control"   })
 						</div>
 
 				            
                             
-								<div class="my-3">
+								<div class="my-3 col-3">
 									<label class="form-label" for="Manager_Mahlv">@L("Mahlv")</label>
 									<input class="form-control" id="Manager_Mahlv" value="@Model.Manager.Mahlv" type="text" name="mahlv"  required    />
 								</div>
 					
-								<div class="my-3">
+								<div class="my-3 col-3">
 									<label class="form-label" for="Manager_Tenhlv">@L("Tenhlv")</label>
 									<input class="form-control" id="Manager_Tenhlv" value="@Model.Manager.Tenhlv" type="text" name="tenhlv"  required    />
 								</div>
 					
-								<div class="my-3">
+								<div class="my-3 col-3">
 									<label class="form-label" for="Manager_Namsinh">@L("Namsinh")</label>
 									<input class="form-control m-input" id="Manager_Namsinh" value="@Model.Manager.Namsinh.ToString(CultureInfo.InvariantCulture)" type="number" name="namsinh"   />
 								</div>

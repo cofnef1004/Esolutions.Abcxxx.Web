@@ -10,6 +10,7 @@ using ES.QLBongDa.Clubs.Dtos;
 using Abp.Application.Services.Dto;
 using Abp.Extensions;
 using System.Linq;
+using ES.QLBongDa.ListHLVs.Dtos;
 
 namespace ES.QLBongDa.Web.Areas.App.Controllers
 {
@@ -48,7 +49,8 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             {
                 getClubForEditOutput = new GetClubForEditOutput
                 {
-                    Club = new CreateOrEditClubDto()
+                    Club = new CreateOrEditClubDto(),
+                    list = new CreateOrEditListHLVDto()
                 };
             }
 
@@ -59,6 +61,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Vilagetentinh = getClubForEditOutput.Vilagetentinh,
                 ClubStadiumList = await _clubsAppService.GetAllStadiumForTableDropdown(),
                 ClubVilageList = await _clubsAppService.GetAllVilageForTableDropdown(),
+                list = getClubForEditOutput.list
             };
 
             return View(viewModel);
@@ -73,7 +76,6 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Club = getClubForViewDto.Club
                 ,
                 StadiumTensan = getClubForViewDto.StadiumTensan
-
                 ,
                 Vilagetentinh = getClubForViewDto.Vilagetentinh
                 ,

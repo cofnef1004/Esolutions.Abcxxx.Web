@@ -39,24 +39,24 @@
 
 				            
                                         
-						<div class="my-3">
+						<div class="my-3 col-3">
 							<label class="form-label" for="clubId">@L("Club")</label>
 							@Html.DropDownList("clubId", new SelectList(Model.PlayerClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Player.ClubId.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
 						</div>
             
-						<div class="my-3">
+						<div class="my-3 col-3">
 							<label class="form-label" for="nationId">@L("Nation")</label>
 							@Html.DropDownList("nationId", new SelectList(Model.PlayerNationList,"Id","DisplayName", (Model.IsEditMode ? Model.Player.NationId.ToString() : "")),@L("SelectANation"), new { @class = "form-control"   })
 						</div>
 
 				            
                             
-								<div class="my-3">
+								<div class="my-3 col-3">
 									<label class="form-label" for="Player_Hoten">@L("Hoten")</label>
 									<input class="form-control" id="Player_Hoten" value="@Model.Player.Hoten" type="text" name="hoten"  required    />
 								</div>
 					
-								<div class="my-3">
+								<div class="my-3 col-3">
 									<label class="form-label" for="Player_Vitri">@L("Vitri")</label>
 										<div class="dropdown1">
 											<select id="Player_Vitri" value="@Model.Player.Vitri" name="vitri" class="form-control">
@@ -69,7 +69,7 @@
 									@*<input class="form-control" id="Player_Vitri" value="@Model.Player.Vitri" type="text" name="vitri"     />*@
 								</div>
 					
-								<div class="my-3">
+								<div class="my-3 col-3">
 									<label class="form-label" for="Player_soao">@L("soao")</label>
 									<input class="form-control m-input" id="Player_soao" value="@Model.Player.soao.ToString(CultureInfo.InvariantCulture)" type="number" name="soao"   />
 								</div>

@@ -22,13 +22,13 @@ namespace ES.QLBongDa.Rankings
     public class RankingsAppService : QLBongDaAppServiceBase, IRankingsAppService
     {
         private readonly IRepository<Ranking> _rankingRepository;
-        private readonly IMatchsAppService _matchRepository;
+        private readonly IRepository<Match> _matchRepository;
         private readonly IRepository<Club> _clubRepository;
         private readonly IRankingsExcelExporter _rankingsExcelExporter;
         private readonly IRepository<Club, int> _lookup_clubRepository;
 
 
-        public RankingsAppService(IRepository<Ranking> rankingRepository, IRepository<Club> clubRepository, IMatchsAppService matchRepository, IRankingsExcelExporter rankingsExcelExporter, IRepository<Club, int> lookup_clubRepository)
+        public RankingsAppService(IRepository<Ranking> rankingRepository, IRepository<Club> clubRepository, IRepository<Match> matchRepository, IRankingsExcelExporter rankingsExcelExporter, IRepository<Club, int> lookup_clubRepository)
         {
             _rankingRepository = rankingRepository;
             _matchRepository = matchRepository;
@@ -250,32 +250,38 @@ namespace ES.QLBongDa.Rankings
         public async Task<GetRankingForViewDto> ViewResult(int id)
         {
             var ranking = await _rankingRepository.GetAsync(id);
-            var output = new GetRankingForViewDto { Ranking = ObjectMapper.Map<RankingDto>(ranking) };
-            var getrs = await _matchRepository.GetMatchForView(id);
+            var getrs = await _matchRepository.GetAll().FirstOrDefaultAsync(x=>x.Maclb1 == ranking.maclb);
+            var output = new GetRankingForViewDto 
+            {
+                Ranking = ObjectMapper.Map<RankingDto>(ranking) 
+            };
             var point = await GetRankingForView(id);
-            int first = getrs.Match.Ketqua.IndexOf("-");
-            int home = Convert.ToInt32(getrs.Match.Ketqua.Substring(0, first));
-            int last = getrs.Match.Ketqua.LastIndexOf("-");
-            int away = Convert.ToInt32(getrs.Match.Ketqua.Substring(last + 1));
-            if (point.Ranking.vong < getrs.Match.Vong)
+            int first = getrs.Ketqua.IndexOf("-");
+            int home = Convert.ToInt32(getrs.Ketqua.Substring(0, first));
+            int last = getrs.Ketqua.LastIndexOf("-");
+            int away = Convert.ToInt32(getrs.Ketqua.Substring(last + 1));
+            if (point.Ranking.vong < getrs.Vong)
             {
                 if (home > away)
                 {
                     point.Ranking.diem += 3;
                     point.Ranking.tran += 1;
                     point.Ranking.thang += 1;
+                    point.Ranking.vong+= 1;
                 }
                 if (home == away)
                 {
                     point.Ranking.diem += 1;
                     point.Ranking.tran += 1;
                     point.Ranking.hoa += 1;
+                    point.Ranking.vong += 1;
                 }
                 if (home < away)
                 {
                     point.Ranking.diem += 0;
                     point.Ranking.tran += 1;
                     point.Ranking.thua += 1;
+                    point.Ranking.vong += 1;
                 }
             }
             return (output);

@@ -36,12 +36,12 @@ ViewBag.CurrentPageName = AppPageNames.Host.Stadiums;
                                 <input type="hidden" name="id" value="@Model.Stadium.Id" />
                                 }
 
-                                <div class="my-3">
+                                <div class="my-3 col-3">
                                     <label class="form-label" for="Stadium_Masan">@L("Masan")</label>
                                     <input class="form-control" id="Stadium_Masan" value="@Model.Stadium.Masan" type="text" name="masan" required />
                                 </div>
 
-                                <div class="my-3">
+                                <div class="my-3 col-3">
                                     <label class="form-label" for="Stadium_Tensan">@L("Tensan")</label>
                                     <input class="form-control" id="Stadium_Tensan" value="@Model.Stadium.Tensan" type="text" name="tensan" maxlength="@ES.QLBongDa.Stadiums.StadiumConsts.MaxTensanLength" minlength="@ES.QLBongDa.Stadiums.StadiumConsts.MinTensanLength" />
                                 </div>
