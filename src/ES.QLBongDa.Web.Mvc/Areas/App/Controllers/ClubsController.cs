@@ -82,7 +82,6 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 List = getClubForViewDto.List
                 ,
                 coach = getClubForViewDto.coach
-
             };
 
             return View(model);

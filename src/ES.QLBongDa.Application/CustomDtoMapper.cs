@@ -74,6 +74,7 @@ namespace ES.QLBongDa
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            configuration.CreateMap<CreateOrEditClubDto, CreateOrEditListHLVDto>().ReverseMap();
             configuration.CreateMap<ListHLVDto, Manager>().ReverseMap();
             configuration.CreateMap<ListHLVDto, ManagerDto>().ReverseMap();
             configuration.CreateMap<ListHLVDto, Club>().ReverseMap();

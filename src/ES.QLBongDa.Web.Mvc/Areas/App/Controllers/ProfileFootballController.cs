@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Matchs;
 using ES.QLBongDa.Rankings;
 using ES.QLBongDa.Web.Areas.App.Models.Rankings;
@@ -12,18 +14,21 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
     {
         private readonly IRankingsAppService _rankingsAppService;
         private readonly IMatchsAppService _matchAppService;
+        private readonly IClubsAppService _clubAppService;
 
-        public ProfileFootballController(IRankingsAppService rankingsAppService, IMatchsAppService matchAppService)
+        public ProfileFootballController(IRankingsAppService rankingsAppService, IClubsAppService clubAppService, IMatchsAppService matchAppService)
         {
             _rankingsAppService = rankingsAppService;
             _matchAppService = matchAppService;
+            _clubAppService = clubAppService;
         }
-        public  IActionResult Index()
+        public async Task<ActionResult> Index(int id)
         {
+            var getInforView = await _clubAppService.GetClubForView(id);
             /*var getRankingForViewDto = await _rankingsAppService.GetRankingForView(id);*/
             var model = new ProfileFootballViewModel
             {
-                TotalMatch = /*getRankingForViewDto.Ranking.tran*/98
+                TotalMatch = /*getInforView.Club.MACLB.Count()*/94
                 ,
                 MatchDone = 4
                 ,

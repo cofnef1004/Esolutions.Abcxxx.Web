@@ -64,6 +64,10 @@
                 abp.message.error(app.localize('{0}IsRequired', app.localize('Vilage')));
                 return;
             }
+            if ($('#Club_VilageId').prop('required') && $('#Club_VilageId').val() == '') {
+                abp.message.error(app.localize('{0}IsRequired', app.localize('Vilage')));
+                return;
+            }
 
             var club = _$clubInformationForm.serializeFormToObject();
 			

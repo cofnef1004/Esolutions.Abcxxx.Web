@@ -139,8 +139,13 @@ namespace ES.QLBongDa.Clubs
         public async Task<GetClubForEditOutput> GetClubForEdit(EntityDto input)
         {
             var club = await _clubRepository.FirstOrDefaultAsync(input.Id);
+            var list = await _listHLVRepository.GetAll().FirstOrDefaultAsync(x=>x.MACLB == club.MACLB);
 
-            var output = new GetClubForEditOutput { Club = ObjectMapper.Map<CreateOrEditClubDto>(club) };
+            var output = new GetClubForEditOutput 
+            {
+                Club = ObjectMapper.Map<CreateOrEditClubDto>(club),
+                list = ObjectMapper.Map<CreateOrEditListHLVDto>(list)
+            };
 
             if (output.Club.StadiumId != null)
             {

@@ -96,7 +96,6 @@ namespace ES.QLBongDa.Rankings
                 {
                     Ranking = new RankingDto
                     {
-
                         nam = o.nam,
                         vong = o.vong,
                         tran = o.tran,
@@ -251,41 +250,39 @@ namespace ES.QLBongDa.Rankings
         {
             var ranking = await _rankingRepository.GetAsync(id);
             var getrs = await _matchRepository.GetAll().FirstOrDefaultAsync(x=>x.Maclb1 == ranking.maclb);
-            var output = new GetRankingForViewDto 
-            {
-                Ranking = ObjectMapper.Map<RankingDto>(ranking) 
-            };
-            var point = await GetRankingForView(id);
             int first = getrs.Ketqua.IndexOf("-");
             int home = Convert.ToInt32(getrs.Ketqua.Substring(0, first));
             int last = getrs.Ketqua.LastIndexOf("-");
             int away = Convert.ToInt32(getrs.Ketqua.Substring(last + 1));
-            if (point.Ranking.vong < getrs.Vong)
-            {
-                if (home > away)
-                {
-                    point.Ranking.diem += 3;
-                    point.Ranking.tran += 1;
-                    point.Ranking.thang += 1;
-                    point.Ranking.vong+= 1;
-                }
-                if (home == away)
-                {
-                    point.Ranking.diem += 1;
-                    point.Ranking.tran += 1;
-                    point.Ranking.hoa += 1;
-                    point.Ranking.vong += 1;
-                }
-                if (home < away)
-                {
-                    point.Ranking.diem += 0;
-                    point.Ranking.tran += 1;
-                    point.Ranking.thua += 1;
-                    point.Ranking.vong += 1;
-                }
-            }
+            var output = new GetRankingForViewDto 
+            {                
+                Ranking = ObjectMapper.Map<RankingDto>(ranking)
+            };
             return (output);
         }
-
     }
 }
+
+/*   if (ranking.vong < getrs.Vong)
+   {
+       if (home > away)
+       {
+           ranking.diem += 3;
+           ranking.tran += 1;
+           ranking.thang += 1;
+           ranking.vong+= 1;
+       }
+       if (home == away)
+       {
+           ranking.diem += 1;
+           ranking.tran += 1;
+           ranking.hoa += 1;
+           ranking.vong += 1;
+       }
+       if (home < away)
+       {
+           ranking.diem += 0;
+           ranking.tran += 1;
+           ranking.thua += 1;
+           ranking.vong += 1;
+       }*/

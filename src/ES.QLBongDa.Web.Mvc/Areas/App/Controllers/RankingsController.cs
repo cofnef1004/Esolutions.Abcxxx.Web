@@ -77,6 +77,15 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             return View(model);
         }
 
+        public async Task<ActionResult> ViewResult(int id)
+        {
+            var model = new RankingViewModel()
+            {
+
+            };
+            return View(model);
+        }
+
       /*  public async Task<ActionResult> ViewResult(int id)
         {
             var getrs = await _matchAppService.GetMatchForView(id);

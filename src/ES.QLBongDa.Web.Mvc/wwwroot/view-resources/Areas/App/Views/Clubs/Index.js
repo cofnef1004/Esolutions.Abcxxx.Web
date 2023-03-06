@@ -44,7 +44,7 @@
             serverSide: true,
             processing: true,
             listAction: {
-                ajaxFunction: _clubsService.getAll,
+                ajaxFunction: _clubsService.,
                 inputFilter: function () {
                     return {
 					filter: $('#ClubsTableFilter').val(),

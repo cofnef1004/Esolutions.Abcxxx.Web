@@ -14,14 +14,19 @@
                 {
                     <input type="hidden" name="id" value="@Model.ListHLV.Id" />
                 }
-
-				
-                
-				
-                
 								<div class="my-3">
 									<label class="form-label" for="ListHLV_Mahlv">@L("Mahlv")</label>
-									<input class="form-control" id="ListHLV_Mahlv" value="@Model.ListHLV.Mahlv" type="text" name="mahlv"     />
+									<div class="dropdown2">
+										<select class="form-control" id="ListHLV_Mahlv" value="@Model.ListHLV.Mahlv" name="mahlv">
+											<option value="HLV01">HLV01</option>
+											<option value="HLV02">HLV02</option>
+											<option value="HLV03">HLV03</option>
+											<option value="HLV04">HLV04</option>
+											<option value="HLV05">HLV05</option>
+											<option value="HLV06">HLV06</option>
+											<option value="HLV07">HLV07</option>
+										</select>
+									</div>
 								</div>
 					
 								<div class="my-3">
@@ -31,10 +36,18 @@
 					
 								<div class="my-3">
 									<label class="form-label" for="ListHLV_VAITRO">@L("VAITRO")</label>
-									<input class="form-control" id="ListHLV_VAITRO" value="@Model.ListHLV.VAITRO" type="text" name="vaitro"  required    />
+									<div class="dropdown1">
+										<select id="ListHLV_VAITRO" value="@Model.ListHLV.VAITRO" name="vaitro" class="form-control">
+											<option value="HLV Chính">HLV Chính</option>
+											<option value="Trợ Lý HLV">Trợ Lý HLV</option>
+											<option value="HLV Thủ Môn">HLV Thủ Môn</option>
+											<option value="HLV Tiền Đạo">HLV Tiền Đạo</option>
+											<option value="HLV Tiền Vệ">HLV Tiền Vệ</option>
+											<option value="HLV Hậu Vệ">HLV Hậu Vệ</option>
+											<option value="HLV Thể Lực">HLV Thể Lực</option>
+										</select>
+									</div>
 								</div>
-					
-
             </form>
         </div>
 </div>

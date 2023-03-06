@@ -9,6 +9,7 @@
 {
     <script abp-src="/view-resources/Areas/App/Views/Clubs/CreateOrEdit.js" asp-append-version="true"></script>
     <script abp-src="/view-resources/Areas/App/Views/Clubs/Index.js" asp-append-version="true"></script>
+    <script abp-src="/view-resources/Areas/App/Views/ListHLVs/Index.js" asp-append-version="true"></script>
 }
 
 <div class="content d-flex flex-column flex-column-fluid">
@@ -46,18 +47,27 @@
                 <h6>@L("Vilage") :</h6>
                 @Model.Vilagetentinh
             </div>
-            <h4> @L("Danhsachhl") :</h4>
+         
+                    <div>
+                        <h4> @L("Danhsachhl") :</h4>
+                        <button  style="float:right"  id="CreateNewListHLVButton" class="btn btn-primary blue" data-person-id="@Model.List.Mahlv"><i class="fa fa-plus"></i> @L("CreateNewHLV")</button>
+                    </div>
+
              <div class="row align-items-center">
-                <table  class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
                                 <tr>
                                     <td><h4>Mã HLV</h4></td>
                                     <td><h4>Tên HLV</h4></td>
                                     <td><h4>Vai Trò</h4></td>
+                                    <td></td>
                                 </tr>
                    <tr>
                        <td>@Model.List.Mahlv</td>
                        <td>@Model.coach.Tenhlv</td>
                        <td>@Model.List.VAITRO</td>
+                       <td><button title="@L("Delete")" id="delete" class="btn btn-circle btn-icon-only btn-danger" href="javascript:;">
+                <i class="la la-trash"></i>
+            </button></td>
                    </tr>
                 </table>
             </div>
