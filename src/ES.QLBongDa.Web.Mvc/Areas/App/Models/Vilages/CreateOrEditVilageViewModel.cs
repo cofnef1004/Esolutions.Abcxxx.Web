@@ -4,7 +4,7 @@ using Abp.Extensions;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Vilages
 {
-    public class CreateOrEditVilageViewModel
+    public class CreateOrEditVilageModalViewModel
     {
         public CreateOrEditVilageDto Vilage { get; set; }
 

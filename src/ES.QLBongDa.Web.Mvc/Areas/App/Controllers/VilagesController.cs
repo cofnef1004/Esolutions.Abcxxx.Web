@@ -35,7 +35,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Vilages_Create, AppPermissions.Pages_Vilages_Edit)]
-        public async Task<ActionResult> CreateOrEdit(int? id)
+        public async Task<PartialViewResult> CreateOrEditModal(int? id)
         {
             GetVilageForEditOutput getVilageForEditOutput;
 
@@ -51,15 +51,16 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 };
             }
 
-            var viewModel = new CreateOrEditVilageViewModel()
+            var viewModel = new CreateOrEditVilageModalViewModel()
             {
                 Vilage = getVilageForEditOutput.Vilage,
+
             };
 
-            return View(viewModel);
+            return PartialView("_CreateOrEditModal", viewModel);
         }
 
-        public async Task<ActionResult> ViewVilage(int id)
+        public async Task<PartialViewResult> ViewVilageModal(int id)
         {
             var getVilageForViewDto = await _vilagesAppService.GetVilageForView(id);
 
@@ -68,7 +69,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Vilage = getVilageForViewDto.Vilage
             };
 
-            return View(model);
+            return PartialView("_ViewVilageModal", model);
         }
 
     }

@@ -1,6 +1,4 @@
-﻿
-
-using ES.QLBongDa.ListHLVs.Dtos;
+﻿using ES.QLBongDa.ListHLVs.Dtos;
 using ES.QLBongDa.Managers.Dtos;
 
 namespace ES.QLBongDa.Clubs.Dtos
@@ -15,7 +13,6 @@ namespace ES.QLBongDa.Clubs.Dtos
         public ListHLVDto List { get; set; }
 
         public ManagerDto coach { get; set; }
-
 
     }
 }

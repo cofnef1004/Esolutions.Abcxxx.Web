@@ -15,6 +15,13 @@
             'delete': abp.auth.hasPermission('Pages.Players.Delete')
         };
 
+         var _createOrEditModal = new app.ModalManager({
+                    viewUrl: abp.appPath + 'App/Players/CreateOrEditModal',
+                    scriptUrl: abp.appPath + 'view-resources/Areas/App/Views/Players/_CreateOrEditModal.js',
+                    modalClass: 'CreateOrEditPlayerModal'
+                });
+                   
+
 		 var _viewPlayerModal = new app.ModalManager({
             viewUrl: abp.appPath + 'App/Players/ViewplayerModal',
             modalClass: 'ViewPlayerModal'
@@ -79,7 +86,7 @@
                                 text: app.localize('View'),
                                 iconStyle: 'far fa-eye mr-2',
                                 action: function (data) {
-                                    window.location="/App/Players/ViewPlayer/" + data.record.player.id;
+                                    _viewPlayerModal.open({ id: data.record.player.id });
                                 }
                         },
 						{
@@ -89,7 +96,7 @@
                                 return _permissions.edit;
                             },
                             action: function (data) {
-                            window.location="/App/Players/CreateOrEdit/" + data.record.player.id;                                
+                            _createOrEditModal.open({ id: data.record.player.id });                                
                             }
                         }, 
 						{
@@ -165,7 +172,9 @@
             $('#AdvacedAuditFiltersArea').slideUp();
         });
 
-                
+        $('#CreateNewPlayerButton').click(function () {
+            _createOrEditModal.open();
+        });        
 
 		$('#ExportToExcelButton').click(function () {
             _playersService

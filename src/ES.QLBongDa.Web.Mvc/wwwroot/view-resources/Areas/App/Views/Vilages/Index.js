@@ -15,7 +15,12 @@
             'delete': abp.auth.hasPermission('Pages.Vilages.Delete')
         };
 
-               
+         var _createOrEditModal = new app.ModalManager({
+                    viewUrl: abp.appPath + 'App/Vilages/CreateOrEditModal',
+                    scriptUrl: abp.appPath + 'view-resources/Areas/App/Views/Vilages/_CreateOrEditModal.js',
+                    modalClass: 'CreateOrEditVilageModal'
+                });
+                   
 
 		 var _viewVilageModal = new app.ModalManager({
             viewUrl: abp.appPath + 'App/Vilages/ViewvilageModal',
@@ -77,7 +82,7 @@
                                 text: app.localize('View'),
                                 iconStyle: 'far fa-eye mr-2',
                                 action: function (data) {
-                                    window.location="/App/Vilages/ViewVilage/" + data.record.vilage.id;
+                                    _viewVilageModal.open({ id: data.record.vilage.id });
                                 }
                         },
 						{
@@ -87,7 +92,7 @@
                                 return _permissions.edit;
                             },
                             action: function (data) {
-                            window.location="/App/Vilages/CreateOrEdit/" + data.record.vilage.id;                                
+                            _createOrEditModal.open({ id: data.record.vilage.id });                                
                             }
                         }, 
 						{
@@ -148,7 +153,9 @@
             $('#AdvacedAuditFiltersArea').slideUp();
         });
 
-                
+        $('#CreateNewVilageButton').click(function () {
+            _createOrEditModal.open();
+        });        
 
 		$('#ExportToExcelButton').click(function () {
             _vilagesService

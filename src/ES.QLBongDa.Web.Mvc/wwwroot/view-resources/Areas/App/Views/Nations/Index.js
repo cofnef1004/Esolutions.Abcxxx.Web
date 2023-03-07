@@ -15,7 +15,12 @@
             'delete': abp.auth.hasPermission('Pages.Nations.Delete')
         };
 
-               
+         var _createOrEditModal = new app.ModalManager({
+                    viewUrl: abp.appPath + 'App/Nations/CreateOrEditModal',
+                    scriptUrl: abp.appPath + 'view-resources/Areas/App/Views/Nations/_CreateOrEditModal.js',
+                    modalClass: 'CreateOrEditNationModal'
+                });
+                   
 
 		 var _viewNationModal = new app.ModalManager({
             viewUrl: abp.appPath + 'App/Nations/ViewnationModal',
@@ -77,7 +82,7 @@
                                 text: app.localize('View'),
                                 iconStyle: 'far fa-eye mr-2',
                                 action: function (data) {
-                                    window.location="/App/Nations/ViewNation/" + data.record.nation.id;
+                                    _viewNationModal.open({ id: data.record.nation.id });
                                 }
                         },
 						{
@@ -87,7 +92,7 @@
                                 return _permissions.edit;
                             },
                             action: function (data) {
-                            window.location="/App/Nations/CreateOrEdit/" + data.record.nation.id;                                
+                            _createOrEditModal.open({ id: data.record.nation.id });                                
                             }
                         }, 
 						{
@@ -148,7 +153,9 @@
             $('#AdvacedAuditFiltersArea').slideUp();
         });
 
-                
+        $('#CreateNewNationButton').click(function () {
+            _createOrEditModal.open();
+        });        
 
 		$('#ExportToExcelButton').click(function () {
             _nationsService

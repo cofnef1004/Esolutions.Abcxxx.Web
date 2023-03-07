@@ -9,8 +9,6 @@ using ES.QLBongDa.Clubs;
 using ES.QLBongDa.Clubs.Dtos;
 using Abp.Application.Services.Dto;
 using Abp.Extensions;
-using System.Linq;
-using ES.QLBongDa.ListHLVs.Dtos;
 
 namespace ES.QLBongDa.Web.Areas.App.Controllers
 {
@@ -37,7 +35,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Clubs_Create, AppPermissions.Pages_Clubs_Edit)]
-        public async Task<ActionResult> CreateOrEdit(int? id)
+        public async Task<PartialViewResult> CreateOrEditModal(int? id)
         {
             GetClubForEditOutput getClubForEditOutput;
 
@@ -49,25 +47,24 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             {
                 getClubForEditOutput = new GetClubForEditOutput
                 {
-                    Club = new CreateOrEditClubDto(),
-                    list = new CreateOrEditListHLVDto()
+                    Club = new CreateOrEditClubDto()
                 };
             }
 
-            var viewModel = new CreateOrEditClubViewModel()
+            var viewModel = new CreateOrEditClubModalViewModel()
             {
                 Club = getClubForEditOutput.Club,
                 StadiumTensan = getClubForEditOutput.StadiumTensan,
                 Vilagetentinh = getClubForEditOutput.Vilagetentinh,
                 ClubStadiumList = await _clubsAppService.GetAllStadiumForTableDropdown(),
                 ClubVilageList = await _clubsAppService.GetAllVilageForTableDropdown(),
-                list = getClubForEditOutput.list
+
             };
 
-            return View(viewModel);
+            return PartialView("_CreateOrEditModal", viewModel);
         }
 
-        public async Task<ActionResult> ViewClub(int id)
+        public async Task<PartialViewResult> ViewClubModal(int id)
         {
             var getClubForViewDto = await _clubsAppService.GetClubForView(id);
 
@@ -76,6 +73,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Club = getClubForViewDto.Club
                 ,
                 StadiumTensan = getClubForViewDto.StadiumTensan
+
                 ,
                 Vilagetentinh = getClubForViewDto.Vilagetentinh
                 ,
@@ -84,7 +82,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 coach = getClubForViewDto.coach
             };
 
-            return View(model);
+            return PartialView("_ViewClubModal", model);
         }
 
     }

@@ -1,0 +1,52 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Players
+@model CreateOrEditPlayerModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditPlayer")) : L("CreateNewPlayer")))
+
+<div class="modal-body">
+        <div id="PlayerInformationsTab">
+            <form name="PlayerInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.Player.Id" />
+                }
+
+				
+                            
+						<div class="my-3">
+							<label class="form-label" for="clubId">@L("Club")</label>
+							@Html.DropDownList("clubId", new SelectList(Model.PlayerClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Player.ClubId.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+						</div>
+            
+						<div class="my-3">
+							<label class="form-label" for="nationId">@L("Nation")</label>
+							@Html.DropDownList("nationId", new SelectList(Model.PlayerNationList,"Id","DisplayName", (Model.IsEditMode ? Model.Player.NationId.ToString() : "")),@L("SelectANation"), new { @class = "form-control"   })
+						</div>
+
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="Player_Hoten">@L("Hoten")</label>
+									<input class="form-control" id="Player_Hoten" value="@Model.Player.Hoten" type="text" name="hoten"  required    />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Player_Vitri">@L("Vitri")</label>
+									<input class="form-control" id="Player_Vitri" value="@Model.Player.Vitri" type="text" name="vitri"     />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Player_soao">@L("soao")</label>
+									<input class="form-control m-input" id="Player_soao" value="@Model.Player.soao.ToString(CultureInfo.InvariantCulture)" type="number" name="soao"  />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

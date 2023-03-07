@@ -4,7 +4,7 @@ using Abp.Extensions;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Nations
 {
-    public class CreateOrEditNationViewModel
+    public class CreateOrEditNationModalViewModel
     {
         public CreateOrEditNationDto Nation { get; set; }
 

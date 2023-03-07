@@ -1,20 +1,18 @@
 ﻿using ES.QLBongDa.Clubs.Dtos;
 using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Abp.Extensions;
-using ES.QLBongDa.ListHLVs.Dtos;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Clubs
 {
-    public class CreateOrEditClubViewModel
+    public class CreateOrEditClubModalViewModel
     {
         public CreateOrEditClubDto Club { get; set; }
 
         public string StadiumTensan { get; set; }
 
         public string Vilagetentinh { get; set; }
-
-        public CreateOrEditListHLVDto list { get;set; }
 
         public List<ClubStadiumLookupTableDto> ClubStadiumList { get; set; }
 

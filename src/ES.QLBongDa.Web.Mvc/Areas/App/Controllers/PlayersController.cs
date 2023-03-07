@@ -35,7 +35,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Players_Create, AppPermissions.Pages_Players_Edit)]
-        public async Task<ActionResult> CreateOrEdit(int? id)
+        public async Task<PartialViewResult> CreateOrEditModal(int? id)
         {
             GetPlayerForEditOutput getPlayerForEditOutput;
 
@@ -51,19 +51,20 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 };
             }
 
-            var viewModel = new CreateOrEditPlayerViewModel()
+            var viewModel = new CreateOrEditPlayerModalViewModel()
             {
                 Player = getPlayerForEditOutput.Player,
                 ClubMACLB = getPlayerForEditOutput.ClubMACLB,
                 Nationmaqg = getPlayerForEditOutput.Nationmaqg,
                 PlayerClubList = await _playersAppService.GetAllClubForTableDropdown(),
                 PlayerNationList = await _playersAppService.GetAllNationForTableDropdown(),
+
             };
 
-            return View(viewModel);
+            return PartialView("_CreateOrEditModal", viewModel);
         }
 
-        public async Task<ActionResult> ViewPlayer(int id)
+        public async Task<PartialViewResult> ViewPlayerModal(int id)
         {
             var getPlayerForViewDto = await _playersAppService.GetPlayerForView(id);
 
@@ -78,7 +79,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
 
             };
 
-            return View(model);
+            return PartialView("_ViewPlayerModal", model);
         }
 
     }

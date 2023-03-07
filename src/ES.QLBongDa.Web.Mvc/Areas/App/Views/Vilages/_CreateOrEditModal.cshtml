@@ -1,0 +1,37 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Vilages
+@model CreateOrEditVilageModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditVilage")) : L("CreateNewVilage")))
+
+<div class="modal-body">
+        <div id="VilageInformationsTab">
+            <form name="VilageInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.Vilage.Id" />
+                }
+
+				
+                
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="Vilage_matinh">@L("matinh")</label>
+									<input class="form-control" id="Vilage_matinh" value="@Model.Vilage.matinh" type="text" name="matinh"  required    />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Vilage_tentinh">@L("tentinh")</label>
+									<input class="form-control" id="Vilage_tentinh" value="@Model.Vilage.tentinh" type="text" name="tentinh"  required    />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

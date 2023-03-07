@@ -6,7 +6,7 @@ using Abp.Extensions;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Players
 {
-    public class CreateOrEditPlayerViewModel
+    public class CreateOrEditPlayerModalViewModel
     {
         public CreateOrEditPlayerDto Player { get; set; }
 

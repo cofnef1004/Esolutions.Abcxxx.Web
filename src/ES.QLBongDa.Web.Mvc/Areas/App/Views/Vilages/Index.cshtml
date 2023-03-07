@@ -3,58 +3,61 @@
 @using ES.QLBongDa.Web.Areas.App.Startup
 @model VilagesViewModel
 @{
-ViewBag.CurrentPageName = AppPageNames.Host.Vilages;
+    ViewBag.CurrentPageName = AppPageNames.Host.Vilages;
 }
 @section Scripts
 {
-<script abp-src="/view-resources/Areas/App/Views/Vilages/Index.js" asp-append-version="true"></script>
+    <script abp-src="/view-resources/Areas/App/Views/Vilages/Index.js" asp-append-version="true"></script>
 }
 
 <div class="content d-flex flex-column flex-column-fluid">
 
-    <abp-page-subheader title='@L("Vilages")' description='@L("VilagesHeaderInfo")'>
-        <button id="ExportToExcelButton" class="btn btn-outline btn-outline-success btn-active-light-success me-1"><i class="fa fa-file-excel"></i> @L("ExportToExcel")</button>
-
-        @if (IsGranted(AppPermissions.Pages_Vilages_Create))
-        {
-        <a href="\App\Vilages\CreateOrEdit" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewVilage")</a>
-        }
-    </abp-page-subheader>
-
-    <div class="@(await GetContainerClass())">
-        <div class="card card-custom gutter-b">
-            <div class="card-body">
-                <div class="form">
-                    <div class="row align-items-center mb-4">
-                        <div class="col-xl-12">
-
-                            <div class="my-3">
-                                <div class="input-group">
-                                    <input type="text" id="VilagesTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">
-                                    <button id="GetVilagesButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>
-                                </div>
-                            </div>
-
-                        </div>
+                <abp-page-subheader title='@L("Vilages")' description='@L("VilagesHeaderInfo")'>
+                     <button id="ExportToExcelButton" class="btn btn-outline btn-outline-success btn-active-light-success me-1"><i class="fa fa-file-excel"></i> @L("ExportToExcel")</button>
+            
+                     @if (IsGranted(AppPermissions.Pages_Vilages_Create))
+                     {
+                         <button id="CreateNewVilageButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewVilage")</button>                
+                     }
+                </abp-page-subheader>
+            
+<div class="@(await GetContainerClass())">   
+    <div class="card card-custom gutter-b">
+        <div class="card-body">
+            <div class="form">
+                <div class="row align-items-center mb-4">
+                    <div class="col-xl-12">                        
+                        
+                        
+                <div class="my-3">
+                    <div class="input-group">
+                        <input type="text" id="VilagesTableFilter" class="form-control" placeholder='@L("SearchWithThreeDot")' value="@Model.FilterText">
+                        <button id="GetVilagesButton" class="btn btn-primary" type="submit"><i class="flaticon-search-1"></i></button>                        
                     </div>
                 </div>
+            
+                    </div>
+                </div>
+			</div>
                 <div id="AdvacedAuditFiltersArea" style="display: none" class="row mb-4">
                     <div class="col-md-12">
+						
+					</div>
 
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="my-3">
-                            <label class="form-label" for="matinhFilterId">@L("matinh")</label>
-                            <input type="text" class="form-control" name="matinhFilter" id="matinhFilterId">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="my-3">
-                            <label class="form-label" for="tentinhFilterId">@L("tentinh")</label>
-                            <input type="text" class="form-control" name="tentinhFilter" id="tentinhFilterId">
-                        </div>
-                    </div>
+							<div class="col-md-3">
+								<div class="my-3">
+									<label class="form-label" for="matinhFilterId">@L("matinh")</label>
+									<input type="text" class="form-control" name="matinhFilter" id="matinhFilterId">
+								</div>
+                            </div>
+							<div class="col-md-3">
+								<div class="my-3">
+									<label class="form-label" for="tentinhFilterId">@L("tentinh")</label>
+									<input type="text" class="form-control" name="tentinhFilter" id="tentinhFilterId">
+								</div>
+                            </div>
+
 
                 </div>
                 <div class="row my-4">
@@ -63,20 +66,20 @@ ViewBag.CurrentPageName = AppPageNames.Host.Vilages;
                         <span id="HideAdvancedFiltersSpan" class="text-muted clickable-item" style="display: none"><i class="fa fa-angle-up"></i> @L("HideAdvancedFilters")</span>
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <table id="VilagesTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
-                        <thead>
-                            <tr>
-                                <th></th>
-
-                                <th>@L("Actions")</th>
-                                <th>@L("matinh")</th>
-                                <th>@L("tentinh")</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            <div class="row align-items-center">
+                <table id="VilagesTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            
+                            <th>@L("Actions")</th>
+								<th>@L("matinh")</th>
+								<th>@L("tentinh")</th>                            
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+  </div>
 </div>

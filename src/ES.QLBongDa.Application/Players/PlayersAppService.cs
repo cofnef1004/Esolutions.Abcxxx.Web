@@ -50,7 +50,7 @@ namespace ES.QLBongDa.Players
                         .WhereIf(input.MinsoaoFilter != null, e => e.soao >= input.MinsoaoFilter)
                         .WhereIf(input.MaxsoaoFilter != null, e => e.soao <= input.MaxsoaoFilter)
                         .WhereIf(!string.IsNullOrWhiteSpace(input.ClubMACLBFilter), e => e.ClubFk != null && e.ClubFk.MACLB == input.ClubMACLBFilter)
-                        .WhereIf(!string.IsNullOrWhiteSpace(input.NationmaqgFilter), e => e.NationFk != null && e.NationFk.tenqg == input.NationmaqgFilter);
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.NationmaqgFilter), e => e.NationFk != null && e.NationFk.maqg == input.NationmaqgFilter);
 
             var pagedAndFilteredPlayers = filteredPlayers
                 .OrderBy(input.Sorting ?? "id asc")
@@ -70,8 +70,8 @@ namespace ES.QLBongDa.Players
                               o.Vitri,
                               o.soao,
                               Id = o.Id,
-                              ClubMACLB = s1 == null || s1.TENCLB == null ? "" : s1.TENCLB.ToString(),
-                              Nationmaqg = s2 == null || s2.tenqg == null ? "" : s2.tenqg.ToString()
+                              ClubMACLB = s1 == null || s1.MACLB == null ? "" : s1.MACLB.ToString(),
+                              Nationmaqg = s2 == null || s2.maqg == null ? "" : s2.maqg.ToString()
                           };
 
             var totalCount = await filteredPlayers.CountAsync();
@@ -114,13 +114,13 @@ namespace ES.QLBongDa.Players
             if (output.Player.ClubId != null)
             {
                 var _lookupClub = await _lookup_clubRepository.FirstOrDefaultAsync((int)output.Player.ClubId);
-                output.ClubMACLB = _lookupClub?.TENCLB?.ToString();
+                output.ClubMACLB = _lookupClub?.MACLB?.ToString();
             }
 
             if (output.Player.NationId != null)
             {
                 var _lookupNation = await _lookup_nationRepository.FirstOrDefaultAsync((int)output.Player.NationId);
-                output.Nationmaqg = _lookupNation?.tenqg?.ToString();
+                output.Nationmaqg = _lookupNation?.maqg?.ToString();
             }
 
             return output;
@@ -136,13 +136,13 @@ namespace ES.QLBongDa.Players
             if (output.Player.ClubId != null)
             {
                 var _lookupClub = await _lookup_clubRepository.FirstOrDefaultAsync((int)output.Player.ClubId);
-                output.ClubMACLB = _lookupClub?.TENCLB?.ToString();
+                output.ClubMACLB = _lookupClub?.MACLB?.ToString();
             }
 
             if (output.Player.NationId != null)
             {
                 var _lookupNation = await _lookup_nationRepository.FirstOrDefaultAsync((int)output.Player.NationId);
-                output.Nationmaqg = _lookupNation?.tenqg?.ToString();
+                output.Nationmaqg = _lookupNation?.maqg?.ToString();
             }
 
             return output;
@@ -194,8 +194,8 @@ namespace ES.QLBongDa.Players
                         .WhereIf(!string.IsNullOrWhiteSpace(input.VitriFilter), e => e.Vitri == input.VitriFilter)
                         .WhereIf(input.MinsoaoFilter != null, e => e.soao >= input.MinsoaoFilter)
                         .WhereIf(input.MaxsoaoFilter != null, e => e.soao <= input.MaxsoaoFilter)
-                        .WhereIf(!string.IsNullOrWhiteSpace(input.ClubMACLBFilter), e => e.ClubFk != null && e.ClubFk.TENCLB == input.ClubMACLBFilter)
-                        .WhereIf(!string.IsNullOrWhiteSpace(input.NationmaqgFilter), e => e.NationFk != null && e.NationFk.tenqg == input.NationmaqgFilter);
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.ClubMACLBFilter), e => e.ClubFk != null && e.ClubFk.MACLB == input.ClubMACLBFilter)
+                        .WhereIf(!string.IsNullOrWhiteSpace(input.NationmaqgFilter), e => e.NationFk != null && e.NationFk.maqg == input.NationmaqgFilter);
 
             var query = (from o in filteredPlayers
                          join o1 in _lookup_clubRepository.GetAll() on o.ClubId equals o1.Id into j1
@@ -213,8 +213,8 @@ namespace ES.QLBongDa.Players
                                  soao = o.soao,
                                  Id = o.Id
                              },
-                             ClubMACLB = s1 == null || s1.TENCLB == null ? "" : s1.TENCLB.ToString(),
-                             Nationmaqg = s2 == null || s2.tenqg == null ? "" : s2.tenqg.ToString()
+                             ClubMACLB = s1 == null || s1.MACLB == null ? "" : s1.MACLB.ToString(),
+                             Nationmaqg = s2 == null || s2.maqg == null ? "" : s2.maqg.ToString()
                          });
 
             var playerListDtos = await query.ToListAsync();
@@ -229,7 +229,7 @@ namespace ES.QLBongDa.Players
                 .Select(club => new PlayerClubLookupTableDto
                 {
                     Id = club.Id,
-                    DisplayName = club == null || club.TENCLB == null ? "" : club.TENCLB.ToString()
+                    DisplayName = club == null || club.MACLB == null ? "" : club.MACLB.ToString()
                 }).ToListAsync();
         }
 
@@ -240,7 +240,7 @@ namespace ES.QLBongDa.Players
                 .Select(nation => new PlayerNationLookupTableDto
                 {
                     Id = nation.Id,
-                    DisplayName = nation == null || nation.tenqg == null ? "" : nation.tenqg.ToString()
+                    DisplayName = nation == null || nation.maqg == null ? "" : nation.maqg.ToString()
                 }).ToListAsync();
         }
 

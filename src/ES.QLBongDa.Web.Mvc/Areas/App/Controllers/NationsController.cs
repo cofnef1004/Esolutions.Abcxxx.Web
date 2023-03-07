@@ -35,7 +35,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Nations_Create, AppPermissions.Pages_Nations_Edit)]
-        public async Task<ActionResult> CreateOrEdit(int? id)
+        public async Task<PartialViewResult> CreateOrEditModal(int? id)
         {
             GetNationForEditOutput getNationForEditOutput;
 
@@ -51,15 +51,16 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 };
             }
 
-            var viewModel = new CreateOrEditNationViewModel()
+            var viewModel = new CreateOrEditNationModalViewModel()
             {
                 Nation = getNationForEditOutput.Nation,
+
             };
 
-            return View(viewModel);
+            return PartialView("_CreateOrEditModal", viewModel);
         }
 
-        public async Task<ActionResult> ViewNation(int id)
+        public async Task<PartialViewResult> ViewNationModal(int id)
         {
             var getNationForViewDto = await _nationsAppService.GetNationForView(id);
 
@@ -68,7 +69,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Nation = getNationForViewDto.Nation
             };
 
-            return View(model);
+            return PartialView("_ViewNationModal", model);
         }
 
     }

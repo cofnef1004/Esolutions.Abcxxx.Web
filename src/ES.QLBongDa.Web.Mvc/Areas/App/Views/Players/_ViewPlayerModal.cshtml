@@ -1,0 +1,40 @@
+﻿
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Players
+@model PlayerViewModel
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Details")))
+
+<div class="modal-body">
+    <div id="PlayerInformationsTab">
+        
+        <div class="row">
+            <div class="col-6 mb-3">
+                <h6>@L("Hoten") :</h6>
+                @Model.Player.Hoten
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Vitri") :</h6>
+                @Model.Player.Vitri
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("soao") :</h6>
+                @Model.Player.soao
+            </div>
+
+            <div class="col-6 mb-3">
+                <h6>(@L("Club")) @L("MACLB") :</h6>
+                @Model.ClubMACLB
+            </div>
+            <div class="col-6 mb-3">
+                <h6>(@L("Nation")) @L("maqg") :</h6>
+                @Model.Nationmaqg
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithClose.cshtml")
+

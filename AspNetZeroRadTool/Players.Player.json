@@ -1,5 +1,5 @@
 {
-  "IsRegenerate": false,
+  "IsRegenerate": true,
   "MenuPosition": "main",
   "RelativeNamespace": "Players",
   "EntityName": "Player",
@@ -13,7 +13,7 @@
   "CreateUserInterface": true,
   "CreateViewOnly": true,
   "CreateExcelExport": true,
-  "IsNonModalCRUDPage": true,
+  "IsNonModalCRUDPage": false,
   "IsMasterDetailPage": false,
   "PagePermission": {
     "Host": true,
@@ -63,8 +63,8 @@
     {
       "Name": "soao",
       "Type": "int",
-      "MaxLength": 0,
-      "MinLength": 0,
+      "MaxLength": -1,
+      "MinLength": -1,
       "Range": {
         "IsRangeSet": false,
         "MinimumValue": 0.0,

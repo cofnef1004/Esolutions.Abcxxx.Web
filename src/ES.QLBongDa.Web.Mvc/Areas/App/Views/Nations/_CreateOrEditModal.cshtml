@@ -1,0 +1,37 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Nations
+@model CreateOrEditNationModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditNation")) : L("CreateNewNation")))
+
+<div class="modal-body">
+        <div id="NationInformationsTab">
+            <form name="NationInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.Nation.Id" />
+                }
+
+				
+                
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="Nation_maqg">@L("maqg")</label>
+									<input class="form-control" id="Nation_maqg" value="@Model.Nation.maqg" type="text" name="maqg"  required    />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Nation_tenqg">@L("tenqg")</label>
+									<input class="form-control" id="Nation_tenqg" value="@Model.Nation.tenqg" type="text" name="tenqg"  required    />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

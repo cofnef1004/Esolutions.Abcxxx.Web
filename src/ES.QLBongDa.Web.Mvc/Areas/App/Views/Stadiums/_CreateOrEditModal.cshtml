@@ -1,0 +1,37 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Stadiums
+@model CreateOrEditStadiumModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditStadium")) : L("CreateNewStadium")))
+
+<div class="modal-body">
+        <div id="StadiumInformationsTab">
+            <form name="StadiumInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.Stadium.Id" />
+                }
+
+				
+                
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="Stadium_Masan">@L("Masan")</label>
+									<input class="form-control" id="Stadium_Masan" value="@Model.Stadium.Masan" type="text" name="masan"  required    />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Stadium_Tensan">@L("Tensan")</label>
+									<input class="form-control" id="Stadium_Tensan" value="@Model.Stadium.Tensan" type="text" name="tensan"   maxlength="@ES.QLBongDa.Stadiums.StadiumConsts.MaxTensanLength"  minlength="@ES.QLBongDa.Stadiums.StadiumConsts.MinTensanLength"  />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -1,0 +1,28 @@
+﻿
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Stadiums
+@model StadiumViewModel
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Details")))
+
+<div class="modal-body">
+    <div id="StadiumInformationsTab">
+        
+        <div class="row">
+            <div class="col-6 mb-3">
+                <h6>@L("Masan") :</h6>
+                @Model.Stadium.Masan
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("Tensan") :</h6>
+                @Model.Stadium.Tensan
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithClose.cshtml")
+

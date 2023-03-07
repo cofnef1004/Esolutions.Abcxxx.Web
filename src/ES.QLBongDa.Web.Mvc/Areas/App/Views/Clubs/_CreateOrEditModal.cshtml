@@ -1,0 +1,47 @@
+﻿
+@using System.Globalization
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Clubs
+@model CreateOrEditClubModalViewModel
+@using Abp.Extensions
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditClub")) : L("CreateNewClub")))
+
+<div class="modal-body">
+        <div id="ClubInformationsTab">
+            <form name="ClubInformationsForm" role="form" novalidate class="form-validation">
+
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="id" value="@Model.Club.Id" />
+                }
+
+				
+                            
+						<div class="my-3">
+							<label class="form-label" for="stadiumId">@L("Stadium")</label>
+							@Html.DropDownList("stadiumId", new SelectList(Model.ClubStadiumList,"Id","DisplayName", (Model.IsEditMode ? Model.Club.StadiumId.ToString() : "")),@L("SelectAStadium"), new { @class = "form-control"   })
+						</div>
+            
+						<div class="my-3">
+							<label class="form-label" for="vilageId">@L("Vilage")</label>
+							@Html.DropDownList("vilageId", new SelectList(Model.ClubVilageList,"Id","DisplayName", (Model.IsEditMode ? Model.Club.VilageId.ToString() : "")),@L("SelectAVilage"), new { @class = "form-control"   })
+						</div>
+
+				
+                
+								<div class="my-3">
+									<label class="form-label" for="Club_MACLB">@L("MACLB")</label>
+									<input class="form-control" id="Club_MACLB" value="@Model.Club.MACLB" type="text" name="maclb"  required    />
+								</div>
+					
+								<div class="my-3">
+									<label class="form-label" for="Club_TENCLB">@L("TENCLB")</label>
+									<input class="form-control" id="Club_TENCLB" value="@Model.Club.TENCLB" type="text" name="tenclb"  required    />
+								</div>
+					
+
+            </form>
+        </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

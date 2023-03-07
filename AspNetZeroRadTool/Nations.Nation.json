@@ -1,5 +1,5 @@
 {
-  "IsRegenerate": false,
+  "IsRegenerate": true,
   "MenuPosition": "main",
   "RelativeNamespace": "Nations",
   "EntityName": "Nation",
@@ -13,7 +13,7 @@
   "CreateUserInterface": true,
   "CreateViewOnly": true,
   "CreateExcelExport": true,
-  "IsNonModalCRUDPage": true,
+  "IsNonModalCRUDPage": false,
   "IsMasterDetailPage": false,
   "PagePermission": {
     "Host": true,

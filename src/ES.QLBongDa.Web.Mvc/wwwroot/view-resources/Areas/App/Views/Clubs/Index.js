@@ -15,7 +15,12 @@
             'delete': abp.auth.hasPermission('Pages.Clubs.Delete')
         };
 
-               
+         var _createOrEditModal = new app.ModalManager({
+                    viewUrl: abp.appPath + 'App/Clubs/CreateOrEditModal',
+                    scriptUrl: abp.appPath + 'view-resources/Areas/App/Views/Clubs/_CreateOrEditModal.js',
+                    modalClass: 'CreateOrEditClubModal'
+                });
+                   
 
 		 var _viewClubModal = new app.ModalManager({
             viewUrl: abp.appPath + 'App/Clubs/ViewclubModal',
@@ -44,7 +49,7 @@
             serverSide: true,
             processing: true,
             listAction: {
-                ajaxFunction: _clubsService.,
+                ajaxFunction: _clubsService.getAll,
                 inputFilter: function () {
                     return {
 					filter: $('#ClubsTableFilter').val(),
@@ -79,7 +84,7 @@
                                 text: app.localize('View'),
                                 iconStyle: 'far fa-eye mr-2',
                                 action: function (data) {
-                                    window.location="/App/Clubs/ViewClub/" + data.record.club.id;
+                                    _viewClubModal.open({ id: data.record.club.id });
                                 }
                         },
 						{
@@ -89,7 +94,7 @@
                                 return _permissions.edit;
                             },
                             action: function (data) {
-                            window.location="/App/Clubs/CreateOrEdit/" + data.record.club.id;                                
+                            _createOrEditModal.open({ id: data.record.club.id });                                
                             }
                         }, 
 						{
@@ -160,7 +165,9 @@
             $('#AdvacedAuditFiltersArea').slideUp();
         });
 
-                
+        $('#CreateNewClubButton').click(function () {
+            _createOrEditModal.open();
+        });        
 
 		$('#ExportToExcelButton').click(function () {
             _clubsService

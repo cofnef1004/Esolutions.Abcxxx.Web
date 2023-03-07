@@ -4,7 +4,7 @@ using Abp.Extensions;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Stadiums
 {
-    public class CreateOrEditStadiumViewModel
+    public class CreateOrEditStadiumModalViewModel
     {
         public CreateOrEditStadiumDto Stadium { get; set; }
 

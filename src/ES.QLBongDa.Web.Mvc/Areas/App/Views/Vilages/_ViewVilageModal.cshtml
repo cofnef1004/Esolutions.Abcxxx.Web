@@ -1,0 +1,28 @@
+﻿
+@using ES.QLBongDa.Web.Areas.App.Models.Common.Modals
+@using ES.QLBongDa.Web.Areas.App.Models.Vilages
+@model VilageViewModel
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Details")))
+
+<div class="modal-body">
+    <div id="VilageInformationsTab">
+        
+        <div class="row">
+            <div class="col-6 mb-3">
+                <h6>@L("matinh") :</h6>
+                @Model.Vilage.matinh
+            </div>
+            <div class="col-6 mb-3">
+                <h6>@L("tentinh") :</h6>
+                @Model.Vilage.tentinh
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Areas/App/Views/Common/Modals/_ModalFooterWithClose.cshtml")
+

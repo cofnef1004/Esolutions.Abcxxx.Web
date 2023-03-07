@@ -35,7 +35,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Stadiums_Create, AppPermissions.Pages_Stadiums_Edit)]
-        public async Task<ActionResult> CreateOrEdit(int? id)
+        public async Task<PartialViewResult> CreateOrEditModal(int? id)
         {
             GetStadiumForEditOutput getStadiumForEditOutput;
 
@@ -51,15 +51,16 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 };
             }
 
-            var viewModel = new CreateOrEditStadiumViewModel()
+            var viewModel = new CreateOrEditStadiumModalViewModel()
             {
                 Stadium = getStadiumForEditOutput.Stadium,
+
             };
 
-            return View(viewModel);
+            return PartialView("_CreateOrEditModal", viewModel);
         }
 
-        public async Task<ActionResult> ViewStadium(int id)
+        public async Task<PartialViewResult> ViewStadiumModal(int id)
         {
             var getStadiumForViewDto = await _stadiumsAppService.GetStadiumForView(id);
 
@@ -68,7 +69,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 Stadium = getStadiumForViewDto.Stadium
             };
 
-            return View(model);
+            return PartialView("_ViewStadiumModal", model);
         }
 
     }

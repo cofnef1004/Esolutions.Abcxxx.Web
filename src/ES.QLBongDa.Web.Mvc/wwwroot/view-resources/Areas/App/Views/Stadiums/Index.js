@@ -15,7 +15,12 @@
             'delete': abp.auth.hasPermission('Pages.Stadiums.Delete')
         };
 
-               
+         var _createOrEditModal = new app.ModalManager({
+                    viewUrl: abp.appPath + 'App/Stadiums/CreateOrEditModal',
+                    scriptUrl: abp.appPath + 'view-resources/Areas/App/Views/Stadiums/_CreateOrEditModal.js',
+                    modalClass: 'CreateOrEditStadiumModal'
+                });
+                   
 
 		 var _viewStadiumModal = new app.ModalManager({
             viewUrl: abp.appPath + 'App/Stadiums/ViewstadiumModal',
@@ -77,7 +82,7 @@
                                 text: app.localize('View'),
                                 iconStyle: 'far fa-eye mr-2',
                                 action: function (data) {
-                                    window.location="/App/Stadiums/ViewStadium/" + data.record.stadium.id;
+                                    _viewStadiumModal.open({ id: data.record.stadium.id });
                                 }
                         },
 						{
@@ -87,7 +92,7 @@
                                 return _permissions.edit;
                             },
                             action: function (data) {
-                            window.location="/App/Stadiums/CreateOrEdit/" + data.record.stadium.id;                                
+                            _createOrEditModal.open({ id: data.record.stadium.id });                                
                             }
                         }, 
 						{
@@ -148,7 +153,9 @@
             $('#AdvacedAuditFiltersArea').slideUp();
         });
 
-                
+        $('#CreateNewStadiumButton').click(function () {
+            _createOrEditModal.open();
+        });        
 
 		$('#ExportToExcelButton').click(function () {
             _stadiumsService
