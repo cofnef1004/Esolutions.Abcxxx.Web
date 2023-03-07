@@ -17,7 +17,8 @@
             
                      @if (IsGranted(AppPermissions.Pages_Players_Create))
                      {
-                         <a href="\App\Players\CreateOrEdit" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewPlayer")</a>                
+                         <button id="CreateNewPlayersButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewPlayer")</button>
+                        @* <a href="\App\Players\CreateOrEdit" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewPlayer")</a>*@                
                      }
                 </abp-page-subheader>
             

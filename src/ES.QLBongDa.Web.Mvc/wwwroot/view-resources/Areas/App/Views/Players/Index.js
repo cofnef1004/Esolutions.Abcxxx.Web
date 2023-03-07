@@ -15,8 +15,6 @@
             'delete': abp.auth.hasPermission('Pages.Players.Delete')
         };
 
-               
-
 		 var _viewPlayerModal = new app.ModalManager({
             viewUrl: abp.appPath + 'App/Players/ViewplayerModal',
             modalClass: 'ViewPlayerModal'

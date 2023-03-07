@@ -36,41 +36,74 @@
                             {
                                 <input type="hidden" name="id" value="@Model.Match.Id" />
                             }
+							<div class="row">
+								
+								<div class="col-sm-3 col-md-6">
+									<label class="form-label" for="maclb1">@L("Home")</label>
+										@Html.DropDownList("maclb1", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb1.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+								</div>
+								<div class="col-sm-3 col-md-1">
+									<label class="form-label" for="maclb1">@L("Ketqua")</label>
+									<input class="form-control" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua" min="0"     />
+								</div>
+							</div>
 
+							<div class="my-3 col-sm-3 col-md-3">				
+								<input class="form-control2" id="Match_Ketqua" type="text" name="ketqua"   value="-" hidden  />
+							</div>
+
+							<div class="row">
+								<label class="form-label" for="maclb1">@L("Away")</label>
+								<div class="col-sm-3 col-md-6">
+										@Html.DropDownList("maclb2", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb2.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+								</div>
+								<div class="col-sm-3 col-md-1">
+									<input class="form-control" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua" min="0"     />
+								</div>
+							</div>
 				            
                                         
-						<div class="my-3">
-							<label class="form-label" for="maclb1">@L("Club")</label>
+					@*	<div class="my-3 col-sm-3 col-md-3">
+							<label class="form-label" for="maclb1">@L("Home")</label>
 							@Html.DropDownList("maclb1", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb1.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+							<input class="form-control1" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua"  required    />
+						</div>
+
+						<div class="my-3 col-sm-3 col-md-3">				
+							<input class="form-control2" id="Match_Ketqua" type="text" name="ketqua"   value="-" hidden  />
 						</div>
             
-						<div class="my-3">
-							<label class="form-label" for="maclb2">@L("Club")</label>
-							@Html.DropDownList("maclb2", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb2.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
-						</div>
+						<div class="my-3 col-sm-3 col-md-3">
+							<label class="form-label" for="maclb2">@L("Away")</label>
+							<div>
+								@Html.DropDownList("maclb2", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb2.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
+							</div>
+							<div class="col=-md-3">
+								<input class="form-control1" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua"  required    />
+							</div>	
+						</div>*@
             
 						<div class="my-3">
 							<label class="form-label" for="masan">@L("Stadium")</label>
 							@Html.DropDownList("masan", new SelectList(Model.MatchStadiumList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Masan.ToString() : "")),@L("SelectAStadium"), new { @class = "form-control"   })
 						</div>
-
-				            
                             
-								<div class="my-3">
-									<label class="form-label" for="Match_Nam">@L("Nam")</label>
-									<input class="form-control m-input" id="Match_Nam" value="@Model.Match.Nam.ToString(CultureInfo.InvariantCulture)" type="number" name="nam"   />
-								</div>
+						<div class="my-3">
+							<label class="form-label" for="Match_Nam">@L("Nam")</label>
+							<input class="form-control m-input" id="Match_Nam" value="2023" type="number" name="nam"  min="2000" />
+						</div>
 					
-								<div class="my-3">
-									<label class="form-label" for="Match_Vong">@L("Vong")</label>
-									<input class="form-control m-input" id="Match_Vong" value="@Model.Match.Vong.ToString(CultureInfo.InvariantCulture)" type="number" name="vong"   />
-								</div>
+						<div class="my-3">
+							<label class="form-label" for="Match_Vong">@L("Vong")</label>
+							<input class="form-control m-input" id="Match_Vong" value="@Model.Match.Vong.ToString(CultureInfo.InvariantCulture)" type="number" name="vong" min="0"  />
+						</div>
 					
-								<div class="my-3">
+								@*<div class="my-3">
 									<label class="form-label" for="Match_Ketqua">@L("Ketqua")</label>
-									<input class="form-control" id="Match_Ketqua" value="@Model.Match.Ketqua" type="text" name="ketqua"  required    />
-
-								</div>
+									<input class="form-control1" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua"  required    />
+									<input class="form-control2" id="Match_Ketqua" type="text" name="ketqua"   value="-" hidden  />
+									<input class="form-control1" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua"  required    />
+								</div>*@
 					
                     </div>
 			    </div>            
