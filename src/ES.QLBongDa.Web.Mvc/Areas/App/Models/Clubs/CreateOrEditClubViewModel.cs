@@ -6,7 +6,7 @@ using Abp.Extensions;
 
 namespace ES.QLBongDa.Web.Areas.App.Models.Clubs
 {
-    public class CreateOrEditClubModalViewModel
+    public class CreateOrEditClubViewModel
     {
         public CreateOrEditClubDto Club { get; set; }
 

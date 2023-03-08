@@ -83,7 +83,7 @@ namespace ES.QLBongDa
             configuration.CreateMap<GetListHLVForViewDto, ListHLV>().ReverseMap();
             configuration.CreateMap<GetListHLVForViewDto, ClubDto>().ReverseMap();
             configuration.CreateMap<CreateOrEditListHLVDto, ListHLV>().ReverseMap();
-            configuration.CreateMap<ListHLVDto,ListHLV>().ReverseMap();
+            configuration.CreateMap<ListHLVDto, ListHLV>().ReverseMap();
             configuration.CreateMap<CreateOrEditClubDto, Club>().ReverseMap();
             configuration.CreateMap<ClubDto, Club>().ReverseMap();
             configuration.CreateMap<CreateOrEditManagerDto, Manager>().ReverseMap();

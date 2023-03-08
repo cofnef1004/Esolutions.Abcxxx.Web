@@ -118,8 +118,8 @@
                     },
 					{
 						targets: 5,
-						 data: "match.ketqua",
-						 name: "ketqua"   
+                        data:/* "match.ketqua" + "match.ketqua1" + */"match.ketqua",
+                        name: "ketqua"
 					},
 					{
 						targets: 6,

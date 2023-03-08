@@ -10,9 +10,8 @@ namespace ES.QLBongDa.Clubs.Dtos
         public string StadiumTensan { get; set; }
 
         public string Vilagetentinh { get; set; }
-        public ListHLVDto List { get; set; }
-
-        public ManagerDto coach { get; set; }
+        public ListHLVDto list { get; set; }
+        public ManagerDto manager { get; set; }
 
     }
 }

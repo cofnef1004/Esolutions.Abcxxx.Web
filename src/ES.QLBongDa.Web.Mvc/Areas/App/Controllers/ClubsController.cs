@@ -35,7 +35,7 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Clubs_Create, AppPermissions.Pages_Clubs_Edit)]
-        public async Task<PartialViewResult> CreateOrEditModal(int? id)
+        public async Task<ActionResult> CreateOrEdit(int? id)
         {
             GetClubForEditOutput getClubForEditOutput;
 
@@ -51,20 +51,19 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 };
             }
 
-            var viewModel = new CreateOrEditClubModalViewModel()
+            var viewModel = new CreateOrEditClubViewModel()
             {
                 Club = getClubForEditOutput.Club,
                 StadiumTensan = getClubForEditOutput.StadiumTensan,
                 Vilagetentinh = getClubForEditOutput.Vilagetentinh,
                 ClubStadiumList = await _clubsAppService.GetAllStadiumForTableDropdown(),
                 ClubVilageList = await _clubsAppService.GetAllVilageForTableDropdown(),
-
             };
 
-            return PartialView("_CreateOrEditModal", viewModel);
+            return View(viewModel);
         }
 
-        public async Task<PartialViewResult> ViewClubModal(int id)
+        public async Task<ActionResult> ViewClub(int id)
         {
             var getClubForViewDto = await _clubsAppService.GetClubForView(id);
 
@@ -77,12 +76,11 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
                 ,
                 Vilagetentinh = getClubForViewDto.Vilagetentinh
                 ,
-                List = getClubForViewDto.List
+                list = getClubForViewDto.list
                 ,
-                coach = getClubForViewDto.coach
+                manager = getClubForViewDto.manager
             };
-
-            return PartialView("_ViewClubModal", model);
+            return View(model);
         }
 
     }

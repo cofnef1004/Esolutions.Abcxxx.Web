@@ -210,11 +210,11 @@ namespace ES.QLBongDa.Web.Areas.App.Startup
                         icon: "flaticon-more",
                         permissionDependency: new SimplePermissionDependency(AppPermissions.Pages_Rankings)
                     )
-                 ).AddItem(new MenuItemDefinition(
+                 /*).AddItem(new MenuItemDefinition(
                         AppPageNames.Host.ProfileFootball,
                         L("ProfileFootball"),
                         url: "App/ProfileFootball",
-                        icon: "flaticon-more")
+                        icon: "flaticon-more")*/
                  )
               )
               );
