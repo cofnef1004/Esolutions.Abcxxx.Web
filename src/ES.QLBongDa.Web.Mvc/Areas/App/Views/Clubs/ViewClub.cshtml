@@ -58,18 +58,18 @@
                 <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
                     <thead>
                         <tr>
-                            <th>Mã HLV</th>
-                            <th>Tên HLV</th>
-                            <th>Vai Trò</th>
-                            <th></th>
+                            <td><h6>Mã HLV</h6></td>
+                            <td><h6>Tên HLV</h6></td>
+                            <td><h6>Vai Trò</h6></td>
+                            <td></td>
                         </tr>
-                            <tr>
-                                <td>@Model.list.Mahlv</td>
-                                <td>@Model.manager.Tenhlv</td>
-                                <td>@Model.list.VAITRO</td>
-                                <td style="float:right" title="@L("Delete")" id="delete" class="btn btn-circle btn-icon-only btn-danger">
-                <i class="la la-trash"></i></td>
-                            </tr>     
+                        <tr>
+                            <td>@Model.list.Mahlv</td>
+                            <td>@Model.manager.Tenhlv</td>
+                            <td>@Model.list.VAITRO</td>
+                            <td style="float:right" title="@L("Delete")" id="delete" class="btn btn-circle btn-icon-only btn-danger">
+                            <i class="la la-trash"></i></td>
+                        </tr>     
                     </thead>
                 </table>
             </div>

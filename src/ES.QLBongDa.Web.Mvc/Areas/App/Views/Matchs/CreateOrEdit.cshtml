@@ -38,50 +38,21 @@
                             }
 							<div class="row">
 								
-								<div class="col-sm-3 col-md-6">
+								<div style="text-align:center" class="col-sm-3 col-md-5">
 									<label class="form-label" for="maclb1">@L("Home")</label>
 										@Html.DropDownList("maclb1", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb1.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
 								</div>
-								<div class="col-sm-3 col-md-1">
+
+								<div style="text-align:center" class="col-sm-3 col-md-2">
 									<label class="form-label" for="maclb1">@L("Ketqua")</label>
-									<input class="form-control" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua" min="0"     />
+									<input class="form-control" id="Match_Ketqua" value="@Model.Match.Ketqua" type="text" name="ketqua"/>
 								</div>
-							</div>
 
-							<div class="my-3 col-sm-3 col-md-3">				
-								<input class="form-control2" id="Match_Ketqua1" type="text" name="ketqua1"   value="-" hidden  />
-							</div>
-
-							<div class="row">
-								<label class="form-label" for="maclb1">@L("Away")</label>
-								<div class="col-sm-3 col-md-6">
+								<div style="text-align:center" class="col-sm-3 col-md-5">
+									<label class="form-label" for="maclb1">@L("Away")</label>
 										@Html.DropDownList("maclb2", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb2.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
 								</div>
-								<div class="col-sm-3 col-md-1">
-									<input class="form-control" id="Match_Ketqua2" value="@Model.Match.Ketqua" type="number" name="ketqua2" min="0"     />
-								</div>
 							</div>
-				            
-                                        
-					@*	<div class="my-3 col-sm-3 col-md-3">
-							<label class="form-label" for="maclb1">@L("Home")</label>
-							@Html.DropDownList("maclb1", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb1.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
-							<input class="form-control1" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua"  required    />
-						</div>
-
-						<div class="my-3 col-sm-3 col-md-3">				
-							<input class="form-control2" id="Match_Ketqua" type="text" name="ketqua"   value="-" hidden  />
-						</div>
-            
-						<div class="my-3 col-sm-3 col-md-3">
-							<label class="form-label" for="maclb2">@L("Away")</label>
-							<div>
-								@Html.DropDownList("maclb2", new SelectList(Model.MatchClubList,"Id","DisplayName", (Model.IsEditMode ? Model.Match.Maclb2.ToString() : "")),@L("SelectAClub"), new { @class = "form-control"   })
-							</div>
-							<div class="col=-md-3">
-								<input class="form-control1" id="Match_Ketqua" value="@Model.Match.Ketqua" type="number" name="ketqua"  required    />
-							</div>	
-						</div>*@
             
 						<div class="my-3">
 							<label class="form-label" for="masan">@L("Stadium")</label>
@@ -97,6 +68,7 @@
 							<label class="form-label" for="Match_Vong">@L("Vong")</label>
 							<input class="form-control m-input" id="Match_Vong" value="@Model.Match.Vong.ToString(CultureInfo.InvariantCulture)" type="number" name="vong" min="0"  />
 						</div>
+
                     </div>
 			    </div>            
             </div>
