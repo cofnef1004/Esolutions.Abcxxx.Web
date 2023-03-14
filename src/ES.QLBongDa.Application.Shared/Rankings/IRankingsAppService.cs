@@ -23,6 +23,7 @@ namespace ES.QLBongDa.Rankings
         Task<FileDto> GetRankingsToExcel(GetAllRankingsForExcelInput input);
 
         Task<List<RankingClubLookupTableDto>> GetAllClubForTableDropdown();
+        Task UpdatePoint(EntityDto input);
 
 
     }

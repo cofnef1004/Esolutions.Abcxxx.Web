@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using ES.QLBongDa.Matchs;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using ES.QLBongDa.Tenants.Dashboard.Dto;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace ES.QLBongDa.Rankings
 {
@@ -246,43 +248,70 @@ namespace ES.QLBongDa.Rankings
                 }).ToListAsync();
         }
 
-        public async Task<GetRankingForViewDto> ViewResult(int id)
+        public async Task UpdatePoint(EntityDto input)
         {
-            var ranking = await _rankingRepository.GetAsync(id);
-            var getrs = await _matchRepository.GetAll().FirstOrDefaultAsync(x=>x.Maclb1 == ranking.maclb);
-            int first = getrs.Ketqua.IndexOf("-");
-            int home = Convert.ToInt32(getrs.Ketqua.Substring(0, first));
-            int last = getrs.Ketqua.LastIndexOf("-");
-            int away = Convert.ToInt32(getrs.Ketqua.Substring(last + 1));
-            var output = new GetRankingForViewDto 
-            {                
-                Ranking = ObjectMapper.Map<RankingDto>(ranking)
-            };
-            return (output);
+
+            var listMatch = await _matchRepository.GetAll().Where(x=>x.Ketqua.Length == 3).ToListAsync();
+            foreach(var getrs in listMatch)
+            {
+                var ranking = await _rankingRepository.GetAll().FirstOrDefaultAsync(x => x.maclb == getrs.Maclb1);
+                var ranking2 = await _rankingRepository.GetAll().FirstOrDefaultAsync(x => x.maclb == getrs.Maclb2);
+
+                int first = getrs.Ketqua.IndexOf("-");
+                int home = Convert.ToInt32(getrs.Ketqua.Substring(0, first));
+                int last = getrs.Ketqua.LastIndexOf("-");
+                int away = Convert.ToInt32(getrs.Ketqua.Substring(last + 1));
+
+                if (ranking.vong < getrs.Vong && ranking2.vong < getrs.Vong)
+                {
+                    if (home > away)
+                    {
+                        //san nha
+                        ranking.diem += 3;
+                        ranking.tran += 1;
+                        ranking.thang += 1;
+                        ranking.vong += 1;
+                        ranking.hieuso += home - away;
+                        //san khach
+                        ranking2.diem += 0;
+                        ranking2.tran += 1;
+                        ranking2.thua += 1;
+                        ranking2.vong += 1;
+                        ranking2.hieuso += away - home;
+                    }
+                    if (home == away)
+                    {
+                        //san nha
+                        ranking.diem += 1;
+                        ranking.tran += 1;
+                        ranking.hoa += 1;
+                        ranking.vong += 1;
+                        //san khach
+                        ranking2.diem += 1;
+                        ranking2.tran += 1;
+                        ranking2.hoa += 1;
+                        ranking2.vong += 1;
+                    }
+                    if (home < away)
+                    {
+                        //san nha
+                        ranking.diem += 0;
+                        ranking.tran += 1;
+                        ranking.thua += 1;
+                        ranking.vong += 1;
+                        ranking.hieuso += home - away;
+                        //san khach
+                        ranking2.diem += 3;
+                        ranking2.tran += 1;
+                        ranking2.thang += 1;
+                        ranking2.vong += 1;
+                        ranking2.hieuso += away - home;
+                    }
+                }
+            }    
+           
         }
     }
 }
 
-/*   if (ranking.vong < getrs.Vong)
-   {
-       if (home > away)
-       {
-           ranking.diem += 3;
-           ranking.tran += 1;
-           ranking.thang += 1;
-           ranking.vong+= 1;
-       }
-       if (home == away)
-       {
-           ranking.diem += 1;
-           ranking.tran += 1;
-           ranking.hoa += 1;
-           ranking.vong += 1;
-       }
-       if (home < away)
-       {
-           ranking.diem += 0;
-           ranking.tran += 1;
-           ranking.thua += 1;
-           ranking.vong += 1;
-       }*/
+

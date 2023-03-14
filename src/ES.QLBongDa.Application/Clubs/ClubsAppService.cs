@@ -132,7 +132,6 @@ namespace ES.QLBongDa.Clubs
                 var _lookupVilage = await _lookup_vilageRepository.FirstOrDefaultAsync((int)output.Club.VilageId);
                 output.Vilagetentinh = _lookupVilage?.tentinh?.ToString();
             }
-
             return output;
         }
 

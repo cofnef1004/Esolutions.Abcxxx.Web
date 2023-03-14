@@ -37,27 +37,13 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
         }
 
         [AbpMvcAuthorize(AppPermissions.Pages_Rankings_Create, AppPermissions.Pages_Rankings_Edit)]
-        public async Task<ActionResult> CreateOrEdit(int? id)
+        public async Task<ActionResult> Update(int? id)
         {
-            GetRankingForEditOutput getRankingForEditOutput;
-
-            if (id.HasValue)
-            {
-                getRankingForEditOutput = await _rankingsAppService.GetRankingForEdit(new EntityDto { Id = (int)id });
-            }
-            else
-            {
-                getRankingForEditOutput = new GetRankingForEditOutput
-                {
-                    Ranking = new CreateOrEditRankingDto()
-                };
-            }
+            var getRankingForEditOutput = await _rankingsAppService.GetRankingForEdit(new EntityDto { Id = (int)id });
 
             var viewModel = new CreateOrEditRankingViewModel()
             {
-                Ranking = getRankingForEditOutput.Ranking,
-                ClubTENCLB = getRankingForEditOutput.ClubTENCLB,
-                RankingClubList = await _rankingsAppService.GetAllClubForTableDropdown(),
+                Ranking = getRankingForEditOutput.Ranking
             };
 
             return View(viewModel);
@@ -77,15 +63,16 @@ namespace ES.QLBongDa.Web.Areas.App.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> ViewResult(int id)
+     /*   public async Task<ActionResult> UpdatePoint(int id)
         {
+            var getRankingForUpdate = await _rankingsAppService.UpdatePoint(id);
             var model = new RankingViewModel()
             {
 
             };
             return View(model);
         }
-
+*/
       /*  public async Task<ActionResult> ViewResult(int id)
         {
             var getrs = await _matchAppService.GetMatchForView(id);
